@@ -22,6 +22,8 @@ public class Quartier {
 		this.coord = coord;
 	}
 	
-
+	public String toString () {
+		return "Quartier : " + nom + "\nCoordonnees : " + coord.toString();
+	}
 	
 }

@@ -61,5 +61,22 @@ public class CoordonneesGeographiques {
 			listeDePoints = tmpListeDePoints;
 		}
 	}
+	
+	
+	public String toString () {
+		StringBuilder chaine = new StringBuilder("\t Liste de points : {");
+		if (listeDePoints != null) {
+			for (int i = 0; i < listeDePoints.length; i++) {
+				chaine.append("\n Point ");
+				chaine.append(i+1);
+				chaine.append(" : ");
+				chaine.append(listeDePoints[i]);
+			}
+		}
+		
+		chaine = chaine.append("}");
+		
+		return chaine.toString();
+	}
 
 }
