@@ -2,17 +2,10 @@ package cityproject.infrastructures;
 
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 
-public class Quartier {
-	private String nom;
+public class Quartier extends Infrastructure{
 	private CoordonneesGeographiques coord;
+	private Ville ville;
 	
-	public String getNom() {
-		return nom;
-	}
-	
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
 	
 	public CoordonneesGeographiques getCoord() {
 		return coord;
@@ -23,7 +16,19 @@ public class Quartier {
 	}
 	
 	public String toString () {
-		return "Quartier : " + nom + "\nCoordonnees : " + coord.toString();
+		return "Quartier : " + getNom() + "\nCoordonnees : " + coord.toString();
+	}
+
+	public Ville getVille() {
+		return ville;
+	}
+
+	public void setVille(Ville ville) {
+		this.ville = ville;
+	}
+	
+	public boolean estDansVille(Ville ville) {
+		return true;
 	}
 	
 }
