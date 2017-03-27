@@ -12,7 +12,7 @@ public abstract class Infrastructure {
 	}
 	
 	public Infrastructure(String nom) {
-		super();
+		this();
 		setNom(nom);
 	}
 	
@@ -22,7 +22,7 @@ public abstract class Infrastructure {
 		setCoordonnees(coordonnees);
 	}
 
-	public CoordonneesGeographiques getCoord() {
+	public CoordonneesGeographiques getCoordonnees() {
 		return coordonnees;
 	}
 

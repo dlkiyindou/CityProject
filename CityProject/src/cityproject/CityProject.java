@@ -4,8 +4,12 @@
 package cityproject;
 
 import cityproject.infrastructures.Quartier;
+import cityproject.infrastructures.Ville;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
-import cityproject.infrastructures.geographie.Point;
+import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
+
+import java.awt.Point;
 
 /**
  * @author Dixi
@@ -17,24 +21,43 @@ public class CityProject {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Creation de la ville
+		Ville ville = new Ville("CityProject ville");
+		CoordonneesGeographiques<PointKm> coordVille = new CoordonneesGeographiques<PointKm>();
+		coordVille.ajouterElement(new PointKm(1, 30));
+		coordVille.ajouterElement(new PointKm(5, 50));
+		coordVille.ajouterElement(new PointKm(10, 55));
+		coordVille.ajouterElement(new PointKm(15, 70));
+		coordVille.ajouterElement(new PointKm(25, 72));
+		coordVille.ajouterElement(new PointKm(35, 65));
+		coordVille.ajouterElement(new PointKm(65, 68));
+		coordVille.ajouterElement(new PointKm(100, 65));
+		coordVille.ajouterElement(new PointKm(110, 50));
+		coordVille.ajouterElement(new PointKm(115, 25));
+		coordVille.ajouterElement(new PointKm(110, 3));
+		coordVille.ajouterElement(new PointKm(100, 1));
+		coordVille.ajouterElement(new PointKm(90, 15));
+		coordVille.ajouterElement(new PointKm(75, 20));
+		coordVille.ajouterElement(new PointKm(60, 25));
+		coordVille.ajouterElement(new PointKm(45, 10));
+		coordVille.ajouterElement(new PointKm(30, 5));
+		coordVille.ajouterElement(new PointKm(15, 1));
+		coordVille.ajouterElement(new PointKm(4, 3));
+		ville.setCoordonnees(coordVille);
 		
-		Quartier quartier = new Quartier();
-		quartier.setNom("Le quartier centrale");
 		
-		CoordonneesGeographiques coord = new CoordonneesGeographiques();
-		coord.ajouterPoint(new Point(1, 1));
-		coord.ajouterPoint(new Point(1, 4));
-		coord.ajouterPoint(new Point(2, 7));
-		coord.ajouterPoint(new Point(4, 9));
-		coord.ajouterPoint(new Point(8, 7));
-		coord.ajouterPoint(new Point(9, 4));
-		coord.ajouterPoint(new Point(8, 1));
-		coord.ajouterPoint(new Point(5, 2));
-		
-		
-		quartier.setCoord(coord);
-		
+		Quartier quartier = new Quartier("Le quartier centrale");
+		CoordonneesGeographiques<PointKm> coordQuartier = new CoordonneesGeographiques<PointKm>();
+		coordQuartier.ajouterElement(new PointKm(10, 30));
+		coordQuartier.ajouterElement(new PointKm(10, 35));
+		coordQuartier.ajouterElement(new PointKm(20, 37));
+		coordQuartier.ajouterElement(new PointKm(24, 29));
+		coordQuartier.ajouterElement(new PointKm(8, 7));
+		coordQuartier.ajouterElement(new PointKm(9, 4));
+		coordQuartier.ajouterElement(new PointKm(8, 1));
+		coordQuartier.ajouterElement(new PointKm(5, 2));
+				
+		quartier.setCoordonnees(coordQuartier);
 		System.out.println(quartier);
 	}
 
