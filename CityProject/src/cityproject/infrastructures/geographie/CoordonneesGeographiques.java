@@ -10,13 +10,6 @@ package cityproject.infrastructures.geographie;
 public class CoordonneesGeographiques {
 	private Point[] listeDePoints; 
 
-	/**
-	 * 
-	 */
-	public CoordonneesGeographiques() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public Point[] getListeDePoints() {
 		return listeDePoints;
 	}
@@ -47,7 +40,7 @@ public class CoordonneesGeographiques {
 	
 	/**
 	 * 
-	 * @param p Point à supprimer
+	 * @param p Point ï¿½ supprimer
 	 */
 	public void supprimerPoint(Point p) {
 		if (listeDePoints != null) {
