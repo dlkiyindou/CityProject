@@ -4,9 +4,18 @@ import java.awt.Polygon;
 
 import cityproject.exception.QuartierHorsDeVilleException;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
+import cityproject.infrastructures.geographie.PointKm;
 
 public class Quartier extends Infrastructure{
-	private CoordonneesGeographiques coordonnees;
+	private CoordonneesGeographiques<PointKm> coordonnees;
+	public CoordonneesGeographiques<PointKm> getCoordonnees() {
+		return coordonnees;
+	}
+
+	public void setCoordonnees(CoordonneesGeographiques<PointKm> coordonnees) {
+		this.coordonnees = coordonnees;
+	}
+
 	private Ville ville;
 	
 	
@@ -18,16 +27,9 @@ public class Quartier extends Infrastructure{
 		super(nom);
 	}
 	
-	public Quartier(String nom, CoordonneesGeographiques coordonnees) {
-		super(nom, coordonnees);
-	}
-	
-	public CoordonneesGeographiques getCoordonnees() {
-		return coordonnees;
-	}
-	
-	public void setCoordonnees(CoordonneesGeographiques coord) {
-		this.coordonnees = coord;
+	public Quartier(String nom, CoordonneesGeographiques<PointKm> coordonnees) {
+		this(nom);
+		this.coordonnees = coordonnees;
 	}
 	
 	public String toString () {
@@ -54,5 +56,6 @@ public class Quartier extends Infrastructure{
 	public boolean estDansVille(Ville ville) {
 		return ville.getCoordonnees().contient(coordonnees);
 	}
+	
 	
 }

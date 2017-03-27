@@ -1,33 +1,19 @@
 package cityproject.infrastructures;
 
+import java.awt.Point;
+
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 
 public abstract class Infrastructure {
-	private CoordonneesGeographiques coordonnees;
 	private String nom;
 	
-	public Infrastructure() {
-		super();
-		coordonnees = new CoordonneesGeographiques();
-	}
-	
 	public Infrastructure(String nom) {
-		this();
-		setNom(nom);
-	}
-	
-	public Infrastructure(String nom, CoordonneesGeographiques coordonnees) {
 		super();
 		setNom(nom);
-		setCoordonnees(coordonnees);
 	}
 
-	public CoordonneesGeographiques getCoordonnees() {
-		return coordonnees;
-	}
-
-	public void setCoordonnees(CoordonneesGeographiques coord) {
-		this.coordonnees = coord;
+	public Infrastructure() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getNom() {

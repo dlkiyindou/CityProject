@@ -20,7 +20,7 @@ public class CityProject {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// Creation de la ville
 		Ville ville = new Ville("CityProject ville");
 		CoordonneesGeographiques<PointKm> coordVille = new CoordonneesGeographiques<PointKm>();
@@ -52,12 +52,15 @@ public class CityProject {
 		coordQuartier.ajouterElement(new PointKm(10, 35));
 		coordQuartier.ajouterElement(new PointKm(20, 37));
 		coordQuartier.ajouterElement(new PointKm(24, 29));
-		coordQuartier.ajouterElement(new PointKm(8, 7));
-		coordQuartier.ajouterElement(new PointKm(9, 4));
-		coordQuartier.ajouterElement(new PointKm(8, 1));
-		coordQuartier.ajouterElement(new PointKm(5, 2));
+		coordQuartier.ajouterElement(new PointKm(25, 25));
+		coordQuartier.ajouterElement(new PointKm(30, 25));
+		coordQuartier.ajouterElement(new PointKm(30, 20));
+		coordQuartier.ajouterElement(new PointKm(35, 20));
+		coordQuartier.ajouterElement(new PointKm(30, 25));
+		coordQuartier.ajouterElement(new PointKm(20, 20));
 				
 		quartier.setCoordonnees(coordQuartier);
+		quartier.setVille(ville);
 		System.out.println(quartier);
 	}
 

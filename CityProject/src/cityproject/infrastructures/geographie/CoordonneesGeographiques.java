@@ -111,7 +111,7 @@ public class CoordonneesGeographiques <E extends Point> {
 	public boolean contient(CoordonneesGeographiques<E> coord) {
 		int all = 0;
 		int count = 0;
-		for (E e : listeDePoints) {
+		for (E e : coord.getListeDePoints()) {
 			if (polygon.contains(e)) {
 				count++;
 			}
