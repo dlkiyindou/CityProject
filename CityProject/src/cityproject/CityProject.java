@@ -32,10 +32,10 @@ public class CityProject {
 		coord.ajouterPoint(new Point(8, 1));
 		coord.ajouterPoint(new Point(5, 2));
 		
-		
+		//System.out.println(coord.listeDePoints);
 		quartier.setCoord(coord);
 		
-		System.out.println(quartier);
+		System.out.println(quartier.toString());
 	}
 
 }
