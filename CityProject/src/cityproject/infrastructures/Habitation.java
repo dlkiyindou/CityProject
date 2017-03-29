@@ -1,6 +1,6 @@
 package cityproject.infrastructures;
 
-import cityproject.habitants.Habitant;
+import cityproject.etrevivant.role.Habitant;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 
 public class Habitation {

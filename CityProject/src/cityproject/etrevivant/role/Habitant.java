@@ -1,7 +1,8 @@
 package cityproject.etrevivant.role;
 
-import cityproject.infrastructures.Habitation;
+import cityproject.infrastructures.Quartier;
 
 public interface Habitant {
-	Habitation getHabitation();
+	Quartier getQuartier();
 }
+
