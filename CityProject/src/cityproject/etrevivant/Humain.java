@@ -4,7 +4,6 @@ import java.util.Date;
 
 import cityproject.etrevivant.role.Locataire;
 import cityproject.etrevivant.role.Proprietaire;
-import cityproject.infrastructures.Habitation;
 import cityproject.infrastructures.Quartier;
 
 public class Humain extends EtreVivant implements Locataire, Proprietaire {
@@ -53,10 +52,5 @@ public class Humain extends EtreVivant implements Locataire, Proprietaire {
 		this.dateNaissance = dateNaissance;
 	}
 
-	@Override
-	public Habitation getHabitation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
