@@ -62,6 +62,9 @@ public class CityProject {
 		quartier.setCoordonnees(coordQuartier);
 		quartier.setVille(ville);
 		System.out.println(quartier);
+		
+		String t = null;
+		t.toString();
 	}
 
 }
