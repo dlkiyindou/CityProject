@@ -1,7 +1,8 @@
 package cityproject.habitants;
 
+import java.awt.Point;
+
 import cityproject.infrastructures.Habitation;
-import cityproject.infrastructures.geographie.Point;
 
 public class Habitant {
 	private Point localisation;
