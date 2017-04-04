@@ -12,12 +12,12 @@ public class Croisement extends Infrastructure {
 		rues = new ArrayList<Rue>();
 	}
 	
-	public Croisement(Rue ... _rues) {
+	public Croisement(Rue ... _rues) throws Exception {
 		this();
 		setRues(_rues);
 	}
 	
-	public Croisement(String _nom, Rue ... _rues) {
+	public Croisement(String _nom, Rue ... _rues) throws Exception {
 		this(_rues);
 		setNom(_nom);
 	}
@@ -26,17 +26,20 @@ public class Croisement extends Infrastructure {
 		return rues;
 	}
 
-	public void setRues(Rue ... _rues) {
+	public void setRues(Rue ... _rues) throws Exception {
+		if (rues.size() !=2){
+			throw new Exception ("Un croisement ne peut etre que entre deux rues");
+		}
 		rues.addAll(Arrays.asList(_rues));
 	}
 
-	public void setRues(List<Rue> rues) {
+	public void setRues(List<Rue> rues) throws Exception {
+		if (rues.size() !=2){
+			throw new Exception ("Un croisement ne peut etre que entre deux rues");
+		}
 		this.rues = rues;
 	}
 	
-	public boolean addRue(Rue _rue) {
-		return rues.add(_rue);
-	}
 	
 	public boolean asRue(Rue _rue) {
 		return rues.contains(_rue);

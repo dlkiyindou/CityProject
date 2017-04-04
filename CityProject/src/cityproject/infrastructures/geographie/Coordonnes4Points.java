@@ -1,6 +1,7 @@
 package cityproject.infrastructures.geographie;
 
 import java.awt.Point;
+import java.awt.Polygon;
 import java.util.List;
 
 public class Coordonnes4Points <E extends Point> extends CoordonneesGeographiques<E> {
@@ -14,4 +15,10 @@ public class Coordonnes4Points <E extends Point> extends CoordonneesGeographique
 		}
 	}
 
+	public boolean isValid () {
+		Polygon polygon = getPolygon();
+		
+		return true;
+	}
+	
 }
