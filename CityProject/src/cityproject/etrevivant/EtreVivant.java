@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package cityproject.etrevivant;
 
 import cityproject.etrevivant.role.Habitant;
@@ -25,5 +26,27 @@ public class EtreVivant implements Visiteur, Habitant {
 
 	
 	
+=======
+/**
+ * 
+ */
+package cityproject.etrevivant;
+
+import cityproject.etrevivant.role.Habitant;
+import cityproject.etrevivant.role.Visiteur;
+
+/**
+ * @author Dixi
+ *
+ */
+public abstract class EtreVivant implements Habitant, Visiteur {
+
+	/**
+	 * 
+	 */
+	public EtreVivant() {
+		// TODO Auto-generated constructor stub
+	}
+>>>>>>> branch 'YoannF' of https://github.com/dlkiyindou/CityProject/
 
 }
