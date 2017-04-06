@@ -1,12 +1,5 @@
 package cityproject.etrevivant;
 
-<<<<<<< HEAD
-public class Humain extends EtreVivant implements Locataire,Proprietaire {
-	
-
-	
-	
-=======
 import java.util.Date;
 
 import cityproject.etrevivant.role.Locataire;
@@ -58,6 +51,5 @@ public class Humain extends EtreVivant implements Locataire, Proprietaire {
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
->>>>>>> branch 'YoannF' of https://github.com/dlkiyindou/CityProject/
 
 }

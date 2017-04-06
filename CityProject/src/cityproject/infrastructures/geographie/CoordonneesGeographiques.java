@@ -52,9 +52,8 @@ public class CoordonneesGeographiques <E extends Point> {
 	/**
 	 * 
 	 * @param p
-	 * @throws Exception 
 	 */
-	public void ajouterElement(E e) throws Exception {
+	public void ajouterElement(E e) {
 		listeDePoints.add(e);
 		updatePolygon();
 	}

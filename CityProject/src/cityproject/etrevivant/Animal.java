@@ -1,6 +1,6 @@
 package cityproject.etrevivant;
 
-public class Animal extends EtreVivant {
+public abstract class Animal extends EtreVivant {
 	
 
 	
