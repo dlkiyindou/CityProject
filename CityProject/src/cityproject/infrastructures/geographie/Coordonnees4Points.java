@@ -20,4 +20,3 @@ public class Coordonnees4Points<E extends Point> extends CoordonneesGeographique
 		return true;
 	}
 }
-	
