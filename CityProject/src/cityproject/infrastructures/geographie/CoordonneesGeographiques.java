@@ -54,7 +54,6 @@ public class CoordonneesGeographiques <E extends Point> {
 	 * @param e
 	 * 
 	 * @throws Exception 
-	 * @throws Exception 
 	 */
 	public void ajouterElement(E e) throws Exception {
 		listeDePoints.add(e);

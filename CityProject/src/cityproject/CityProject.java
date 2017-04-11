@@ -40,19 +40,23 @@ public class CityProject {
 		coordVille.ajouterElements(new PointKm(15, 1), new PointKm(4, 3));
 		ville.setCoordonnees(coordVille);
 		
-		System.out.println(DirectionEnum.HORIZONTAL);
 		
-		
-		Rue rue = new Rue("Ma belle rue");
-		Coordonnees4Points<PointM> coordRue = new Coordonnees4Points<PointM>();
-		coordRue.ajouterElement(new PointM(5, 5));
-		coordRue.ajouterElement(new PointM(15, 5));
-		coordRue.ajouterElement(new PointM(5, 15));
-		coordRue.ajouterElement(new PointM(10, 5));
-		
-		if (coordRue.isValid()) {
-			rue.setCoordonnees(coordRue);
-		}
+		Quartier quartier = new Quartier("Le quartier centrale");
+		CoordonneesGeographiques<PointKm> coordQuartier = new CoordonneesGeographiques<PointKm>();
+		coordQuartier.ajouterElement(new PointKm(10, 30));
+		coordQuartier.ajouterElement(new PointKm(10, 35));
+		coordQuartier.ajouterElement(new PointKm(20, 37));
+		coordQuartier.ajouterElement(new PointKm(24, 29));
+		coordQuartier.ajouterElement(new PointKm(25, 25));
+		coordQuartier.ajouterElement(new PointKm(30, 25));
+		coordQuartier.ajouterElement(new PointKm(30, 20));
+		coordQuartier.ajouterElement(new PointKm(35, 20));
+		coordQuartier.ajouterElement(new PointKm(30, 25));
+		coordQuartier.ajouterElement(new PointKm(20, 20));
+				
+		quartier.setCoordonnees(coordQuartier);
+		quartier.setVille(ville);
+		System.out.println(quartier);
 		
 		System.out.println(DirectionEnum.HORIZONTAL);
 		
