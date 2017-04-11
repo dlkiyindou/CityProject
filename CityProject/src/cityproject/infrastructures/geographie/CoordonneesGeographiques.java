@@ -27,6 +27,7 @@ public class CoordonneesGeographiques <E extends Point> {
 	 * 
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public E[] getListeDePointsAsArray() {
 		return (E[]) listeDePoints.toArray();
 	}
@@ -44,14 +45,14 @@ public class CoordonneesGeographiques <E extends Point> {
 	 * @param listeDePoints
 	 */
 	public void setListeDePoints(E[] _listeDePoints) {
-		this.listeDePoints = new ArrayList<E>();
+		listeDePoints = new ArrayList<E>();
 		listeDePoints.addAll(Arrays.asList(_listeDePoints));
 		updatePolygon();
 	}
 	
 	/**
+	 * @param e
 	 * 
-	 * @param p
 	 * @throws Exception 
 	 */
 	public void ajouterElement(E e) throws Exception {
@@ -61,7 +62,32 @@ public class CoordonneesGeographiques <E extends Point> {
 	
 	/**
 	 * 
-	 * @param p Point � supprimer
+	 * 
+	 * @param elts
+	 */
+	@SuppressWarnings("unchecked")
+	public void ajouterElements(E ... elts) {
+		for (E e : elts) {
+			listeDePoints.add(e);
+		}
+		updatePolygon();
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @param elts
+	 */
+	public void ajouterElements(List<E> elts) {
+		for (E e : elts) {
+			listeDePoints.add(e);
+		}
+		updatePolygon();
+	}
+	
+	/**
+	 * 
+	 * @param p Point à supprimer
 	 */
 	public void supprimerElement(E e) {
 		listeDePoints.remove(e);
