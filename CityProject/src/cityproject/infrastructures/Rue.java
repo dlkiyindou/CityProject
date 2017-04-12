@@ -2,11 +2,16 @@ package cityproject.infrastructures;
 
 import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.DirectionEnum;
+import cityproject.infrastructures.geographie.PointKm;
 
 public class Rue extends Infrastructure {
-	private Coordonnees4Points<?> coordonnees;
 	private DirectionEnum direction;
-
+	private static int largeur = 5;
+	// Milieu de la rue
+	private PointKm pointOrigine;
+	// Longueur de la rue, en Km 
+	private int longueur;
+	
 	public Rue() {
 		super();
 	}
@@ -14,23 +19,7 @@ public class Rue extends Infrastructure {
 	public Rue(String nom) {
 		super(nom);
 	}
-
-	public Rue(String nom, Coordonnees4Points<?> coordonnees) throws Exception {
 		setNom(nom);
-		setCoordonnees(coordonnees);
-
-	}
-
-	public Coordonnees4Points<?> getCoordonnees() {
-		return coordonnees;
-	}
-
-	public void setCoordonnees(Coordonnees4Points<?> coordonnees2) throws Exception {
-		if (coordonnees2.isValid()) {
-			this.coordonnees = coordonnees2;
-		} else {
-			throw new Exception("Ces coordonnees geographiques ne sont pas valides pour une ville");
-		}
 	}
 
 	public DirectionEnum getDirection() {
@@ -41,4 +30,30 @@ public class Rue extends Infrastructure {
 		this.direction = direction;
 	}
 
+	public PointKm getPointOrigine() {
+		return pointOrigine;
+	}
+
+	public void setPointOrigine(PointKm pointOrigine) {
+		this.pointOrigine = pointOrigine;
+	}
+
+	public int getLongueur() {
+		return longueur;
+	}
+
+	public void setLongueur(int longueur) {
+		this.longueur = longueur;
+	}
+
+	private void calculCoordonnees () {
+		if (DirectionEnum.VERTICAL == direction) {
+			// On calcule les ordonnees a partir de la longueur et du point d'origine
+			// l'origine, l'aval et l'amont ont la même abscisse
+			
+		} else if (DirectionEnum.HORIZONTAL == direction) {
+			// On calcule les abscisses a partir de la longueur et du point d'origine
+			// l'origine, l'aval et l'amont ont la même ordonnee
+		}
+	}
 }
