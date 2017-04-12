@@ -46,4 +46,10 @@ public class Croisement extends Infrastructure {
 	public boolean asRue(Rue _rue) {
 		return rues.contains(_rue);
 	}
+	
+//	public void setCroisement(){
+//		
+//		
+//	
+//	}
 }
