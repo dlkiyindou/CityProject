@@ -53,12 +53,36 @@ public class Rue extends Infrastructure {
 	
 	private void calculCoordonnees () {
 		if (DirectionEnum.VERTICAL == direction) {
+			
 			// On calcule les ordonnees a partir de la longueur et du point d'origine
 			// l'origine, l'aval et l'amont ont la même abscisse
 			
+			double xd = pointOrigine.getX();
+			double yd= pointOrigine.getY()-longueur/2;
+			PointKm pointDebut = new PointKm ();
+			pointDebut.setLocation (xd,yd);	
+			
+			double xf = pointOrigine.getX();
+			double yf= pointOrigine.getY()+longueur/2;
+			PointKm pointFin = new PointKm ();
+			pointFin.setLocation (xf,yf);		
+			
+			
+			
 		} else if (DirectionEnum.HORIZONTAL == direction) {
+			
 			// On calcule les abscisses a partir de la longueur et du point d'origine
 			// l'origine, l'aval et l'amont ont la même ordonnee
+			
+			double xd = pointOrigine.getX()-longueur/2;
+			double yd= pointOrigine.getY();
+			PointKm pointDebut = new PointKm ();
+			pointDebut.setLocation (xd,yd);	
+			
+			double xf = pointOrigine.getX()+longueur/2;
+			double yf= pointOrigine.getY();
+			PointKm pointFin = new PointKm ();
+			pointFin.setLocation (xf,yf);		
 		}
 	}
 }
