@@ -1,9 +1,7 @@
 package cityproject.infrastructures;
 
-import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
-import cityproject.infrastructures.geographie.PointM;
 
 public class Rue extends Infrastructure {
 	private DirectionEnum direction;
@@ -12,16 +10,17 @@ public class Rue extends Infrastructure {
 	private PointKm pointOrigine;
 	// Longueur de la rue, en Km 
 	private int longueur;
-	private PointKm pointAval;
-	private PointKm pointAmont;
-	
+	private PointKm pointDebut;
+	private PointKm pointFin;
 	
 	public Rue() {
-		super();
+			super();
+			//completer
 	}
 	
-	public Rue (String nom) {
+	public Rue (String nom){
 		super(nom);
+		//completer
 	}
 	
 	public Rue (String nom, PointKm origine, int longueur, DirectionEnum direction) throws Exception {
@@ -39,51 +38,57 @@ public class Rue extends Infrastructure {
 	public void setDirection(DirectionEnum direction) {
 		this.direction = direction;
 	}
-
+	
 	public PointKm getPointOrigine() {
 		return pointOrigine;
 	}
-
+	
 	public void setPointOrigine(PointKm pointOrigine) {
 		this.pointOrigine = pointOrigine;
+		//completer ici
 	}
-
+	
 	public int getLongueur() {
 		return longueur;
 	}
-
+	
 	public void setLongueur(int longueur) {
 		this.longueur = longueur;
+		//completer ici
 	}
-
+	
 	private void calculCoordonnees () {
 		if (DirectionEnum.VERTICAL == direction) {
+			
 			// On calcule les ordonnees a partir de la longueur et du point d'origine
-			// l'origine, l'aval et l'amont ont la même abscisse
-			double xA = pointOrigine.getX();
-			double yA = pointOrigine.getY() - longueur/2;
-			pointAval.setLocation(xA, yA);
-		
-			double xB = pointOrigine.getX();
-			double yB = pointOrigine.getY () + longueur/2;
-			pointAmont.setLocation(xB, yB);
+			// l'origine, l'aval et l'amont ont la mÃªme abscisse
+			
+			double xd = pointOrigine.getX();
+			double yd= pointOrigine.getY()-longueur/2;
+			pointDebut = new PointKm ();
+			pointDebut.setLocation (xd,yd);	
+			
+			double xf = pointOrigine.getX();
+			double yf= pointOrigine.getY()+longueur/2;
+			pointFin = new PointKm ();
+			pointFin.setLocation (xf,yf);		
+			
+			
 			
 		} else if (DirectionEnum.HORIZONTAL == direction) {
+			
 			// On calcule les abscisses a partir de la longueur et du point d'origine
-			// l'origine, l'aval et l'amont ont la même ordonnee
-			double xA = pointOrigine.getY() - longueur/2;;
-			double yA = pointOrigine.getY();
-			pointAval.setLocation(xA, yA);
-		
-			double xB = pointOrigine.getX()+ longueur/2;
-			double yB = pointOrigine.getY();
-			pointAmont.setLocation(xB, yB);
+			// l'origine, l'aval et l'amont ont la mÃªme ordonnee
+			
+			double xd = pointOrigine.getX()-longueur/2;
+			double yd= pointOrigine.getY();
+			pointDebut = new PointKm ();
+			pointDebut.setLocation (xd,yd);	
+			
+			double xf = pointOrigine.getX()+longueur/2;
+			double yf= pointOrigine.getY();
+			pointFin = new PointKm ();
+			pointFin.setLocation (xf,yf);		
 		}
 	}
-
-
-
-
-		
-	}
-
+}
