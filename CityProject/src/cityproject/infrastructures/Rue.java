@@ -10,6 +10,8 @@ public class Rue extends Infrastructure {
 	private PointKm pointOrigine;
 	// Longueur de la rue, en Km 
 	private int longueur;
+	private PointKm pointDebut;
+	private PointKm pointFin;
 	
 	public Rue() {
 			super();
@@ -41,6 +43,7 @@ public class Rue extends Infrastructure {
 	
 	public void setPointOrigine(PointKm pointOrigine) {
 		this.pointOrigine = pointOrigine;
+		//completer ici
 	}
 	
 	public int getLongueur() {
@@ -49,6 +52,7 @@ public class Rue extends Infrastructure {
 	
 	public void setLongueur(int longueur) {
 		this.longueur = longueur;
+		//completer ici
 	}
 	
 	private void calculCoordonnees () {
@@ -59,12 +63,12 @@ public class Rue extends Infrastructure {
 			
 			double xd = pointOrigine.getX();
 			double yd= pointOrigine.getY()-longueur/2;
-			PointKm pointDebut = new PointKm ();
+			pointDebut = new PointKm ();
 			pointDebut.setLocation (xd,yd);	
 			
 			double xf = pointOrigine.getX();
 			double yf= pointOrigine.getY()+longueur/2;
-			PointKm pointFin = new PointKm ();
+			pointFin = new PointKm ();
 			pointFin.setLocation (xf,yf);		
 			
 			
@@ -76,12 +80,12 @@ public class Rue extends Infrastructure {
 			
 			double xd = pointOrigine.getX()-longueur/2;
 			double yd= pointOrigine.getY();
-			PointKm pointDebut = new PointKm ();
+			pointDebut = new PointKm ();
 			pointDebut.setLocation (xd,yd);	
 			
 			double xf = pointOrigine.getX()+longueur/2;
 			double yf= pointOrigine.getY();
-			PointKm pointFin = new PointKm ();
+			pointFin = new PointKm ();
 			pointFin.setLocation (xf,yf);		
 		}
 	}
