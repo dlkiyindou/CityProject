@@ -12,6 +12,8 @@ public class Rue extends Infrastructure {
 	private PointKm pointOrigine;
 	// Longueur de la rue, en Km 
 	private int longueur;
+	private PointKm pointAval;
+	private PointKm pointAmont;
 	
 	
 	public Rue() {
@@ -58,12 +60,10 @@ public class Rue extends Infrastructure {
 		if (DirectionEnum.VERTICAL == direction) {
 			// On calcule les ordonnees a partir de la longueur et du point d'origine
 			// l'origine, l'aval et l'amont ont la même abscisse
-			PointKm pointAval = new PointKm();
 			double xA = pointOrigine.getX();
 			double yA = pointOrigine.getY() - longueur/2;
 			pointAval.setLocation(xA, yA);
 		
-			PointKm pointAmont = new PointKm();
 			double xB = pointOrigine.getX();
 			double yB = pointOrigine.getY () + longueur/2;
 			pointAmont.setLocation(xB, yB);
@@ -71,12 +71,10 @@ public class Rue extends Infrastructure {
 		} else if (DirectionEnum.HORIZONTAL == direction) {
 			// On calcule les abscisses a partir de la longueur et du point d'origine
 			// l'origine, l'aval et l'amont ont la même ordonnee
-			PointKm pointAval = new PointKm();
 			double xA = pointOrigine.getY() - longueur/2;;
 			double yA = pointOrigine.getY();
 			pointAval.setLocation(xA, yA);
 		
-			PointKm pointAmont = new PointKm();
 			double xB = pointOrigine.getX()+ longueur/2;
 			double yB = pointOrigine.getY();
 			pointAmont.setLocation(xB, yB);
