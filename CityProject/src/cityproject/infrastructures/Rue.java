@@ -1,7 +1,5 @@
 package cityproject.infrastructures;
 
-import java.awt.Point;
-
 import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
@@ -60,23 +58,28 @@ public class Rue extends Infrastructure {
 		if (DirectionEnum.VERTICAL == direction) {
 			// On calcule les ordonnees a partir de la longueur et du point d'origine
 			// l'origine, l'aval et l'amont ont la même abscisse
-			Point pointAval = new Point();
-			pointAval.setX (pointOrigine.x);
-			pointAval.setY (pointOrigine.y - longueur/2);
+			PointKm pointAval = new PointKm();
+			double xA = pointOrigine.getX();
+			double yA = pointOrigine.getY() - longueur/2;
+			pointAval.setLocation(xA, yA);
 		
-			Point pointAmont = new Point();
-			pointAmont.setX (pointOrigine.x);
-			pointAmont.setY (pointOrigine.y + longueur/2);
+			PointKm pointAmont = new PointKm();
+			double xB = pointOrigine.getX();
+			double yB = pointOrigine.getY () + longueur/2;
+			pointAmont.setLocation(xB, yB);
+			
 		} else if (DirectionEnum.HORIZONTAL == direction) {
 			// On calcule les abscisses a partir de la longueur et du point d'origine
 			// l'origine, l'aval et l'amont ont la même ordonnee
-			Point pointAval = new Point();
-			pointAval.setX (pointOrigine.x - longueur/2);
-			pointAval.setY (pointOrigine.y);
+			PointKm pointAval = new PointKm();
+			double xA = pointOrigine.getY() - longueur/2;;
+			double yA = pointOrigine.getY();
+			pointAval.setLocation(xA, yA);
 		
-			Point pointAmont = new Point();
-			pointAmont.setX (pointOrigine.x + longueur/2);
-			pointAmont.setY (pointOrigine.y);
+			PointKm pointAmont = new PointKm();
+			double xB = pointOrigine.getX()+ longueur/2;
+			double yB = pointOrigine.getY();
+			pointAmont.setLocation(xB, yB);
 		}
 	}
 
