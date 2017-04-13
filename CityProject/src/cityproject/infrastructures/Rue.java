@@ -15,10 +15,12 @@ public class Rue extends Infrastructure {
 	
 	public Rue() {
 			super();
+			//completer
 	}
 	
 	public Rue (String nom){
 		super(nom);
+		//completer
 	}
 	
 	public Rue (String nom, PointKm origine, int longueur, DirectionEnum direction) throws Exception {
