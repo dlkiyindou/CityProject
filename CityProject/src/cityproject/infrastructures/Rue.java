@@ -13,17 +13,18 @@ public class Rue extends Infrastructure {
 	private PointKm pointDebut;
 	private PointKm pointFin;
 	
-	public Rue() {
-			super();
-			//completer
+	public Rue() throws Exception {
+		new Rue(null, new PointKm(), 0, DirectionEnum.HORIZONTAL);
 	}
 	
-	public Rue (String nom){
+	public Rue (String nom) throws Exception{
 		super(nom);
-		//completer
+		new Rue (nom, new PointKm(), 0, DirectionEnum.HORIZONTAL);
 	}
 	
 	public Rue (String nom, PointKm origine, int longueur, DirectionEnum direction) throws Exception {
+		super();
+		//completer (créer des paramètres par défault)
 		setNom(nom);
 		setLongueur(longueur);
 		setPointOrigine(origine);
@@ -91,4 +92,49 @@ public class Rue extends Infrastructure {
 			pointFin.setLocation (xf,yf);		
 		}
 	}
+	private void calculCordonnees4Points () {
+		if (DirectionEnum.VERTICAL == direction) {
+			double xno = pointDebut.getX()-2.5;
+			double yno = pointDebut.getY();
+			PointKm pointNordOuest = new PointKm ();
+			pointNordOuest.setLocation (xno,yno);
+			
+			double xne = pointDebut.getX()+2.5;
+			double yne = pointDebut.getY();
+			PointKm pointNordEst = new PointKm ();
+			pointNordEst.setLocation (xne,yne);
+			
+			double xso = pointFin.getX()-2.5;
+			double yso = pointFin.getY();
+			PointKm pointSudOuest = new PointKm ();
+			pointSudOuest.setLocation (xso,yso);
+			
+			double xse = pointFin.getX()+2.5;
+			double yse = pointFin.getY();
+			PointKm pointSudEst = new PointKm ();
+			pointSudEst.setLocation (xse,yse);
+			
+		} else if (DirectionEnum.HORIZONTAL == direction) {
+			double xno = pointDebut.getX();
+			double yno = pointDebut.getY()-2.5;
+			PointKm pointNordOuest = new PointKm ();
+			pointNordOuest.setLocation (xno,yno);
+			
+			double xne = pointFin.getX();
+			double yne = pointFin.getY()-2.5;
+			PointKm pointNordEst = new PointKm ();
+			pointNordEst.setLocation (xne,yne);
+			
+			double xso = pointDebut.getX();
+			double yso = pointDebut.getY()+2.5;
+			PointKm pointSudOuest = new PointKm ();
+			pointSudOuest.setLocation (xso,yso);
+			
+			double xse = pointFin.getX();
+			double yse = pointFin.getY()+2.5;
+			PointKm pointSudEst = new PointKm ();
+			pointSudEst.setLocation (xse,yse);
+		}
+	}
+		
 }
