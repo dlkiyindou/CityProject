@@ -48,8 +48,10 @@ public class Parcelle {
 	public boolean asCroisement(Croisement _croisement) {
 		return croisements.contains(_croisement);
 	}
+	
+	
 
-	public Coordonnees4Points calculCoordonneesParcelle() {
+	public void calculCoordonneesParcelle() {
 		
 		for (Croisement c: croisements){
 			
@@ -71,7 +73,6 @@ public class Parcelle {
 
 		}
 
-		return coord_parcelle;
 
 	}
 }
