@@ -51,6 +51,8 @@ public class Parcelle {
 	}
 
 	public void calculCoordonneesParcelle() {
+		
+		pointNordOuest
 
 		if (croisements.size() == 4) {
 
@@ -60,7 +62,9 @@ public class Parcelle {
 
 				for (PointKm p : listeDePoints) {
 					
-					if (c.getPointIntersection.getX 
+					if (c.getPointIntersection().getX() > pointNordOuest.getX()){
+						
+					}
 
 				}
 			}
