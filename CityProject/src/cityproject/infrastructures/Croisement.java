@@ -56,6 +56,11 @@ public class Croisement extends Infrastructure {
 //		
 //	}
 	
+//	public PointKm getPointIntersection(){
+//		
+//		return point;
+//	}
+	
 //	public void setCroisement(){
 //		
 //		
