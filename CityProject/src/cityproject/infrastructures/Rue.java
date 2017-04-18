@@ -12,6 +12,10 @@ public class Rue extends Infrastructure {
 	private int longueur;
 	private PointKm pointDebut;
 	private PointKm pointFin;
+	private PointKm pointNordOuest;
+	private PointKm pointNordEst;
+	private PointKm pointSudOuest;
+	private PointKm pointSudEst;
 	
 	public Rue() throws Exception {
 		new Rue(null, new PointKm(), 0, DirectionEnum.HORIZONTAL);
@@ -46,7 +50,7 @@ public class Rue extends Infrastructure {
 	
 	public void setPointOrigine(PointKm pointOrigine) {
 		this.pointOrigine = pointOrigine;
-		//completer ici
+		//verifier si la longueur a ete mise et si oui calcule des coordonnees des points debut et fin
 	}
 	
 	public int getLongueur() {
@@ -55,9 +59,17 @@ public class Rue extends Infrastructure {
 	
 	public void setLongueur(int longueur) {
 		this.longueur = longueur;
-		//completer ici
+		////verifier si le point d'origine a ete mis et si oui calcule des coordonnees des points debut et fin
 	}
 	
+	public static int getLargeur() {
+		return largeur;
+	}
+
+	public static void setLargeur(int largeur) {
+		Rue.largeur = largeur;
+	}
+
 	private void calculCoordonnees () {
 		if (DirectionEnum.VERTICAL == direction) {
 			
@@ -92,7 +104,9 @@ public class Rue extends Infrastructure {
 			pointFin.setLocation (xf,yf);		
 		}
 	}
+	
 	private void calculCordonnees4Points () {
+		// on calcule les extremitées nord-ouest, nord-est, sud-ouest et sud-est de chaque rue
 		if (DirectionEnum.VERTICAL == direction) {
 			double xno = pointDebut.getX()-2.5;
 			double yno = pointDebut.getY();
