@@ -113,45 +113,45 @@ public class Rue extends Infrastructure {
 		// on calcule les extremitées nord-ouest, nord-est, sud-ouest et sud-est de chaque rue
 		if ((pointDebut != null)&(pointFin != null)) {
 			if (DirectionEnum.VERTICAL == direction) {
-				double xno = pointDebut.getX()-2.5;
+				double xno = pointDebut.getX()-largeur/2;
 				double yno = pointDebut.getY();
-				PointKm pointNordOuest = new PointKm ();
+				pointNordOuest = new PointKm ();
 				pointNordOuest.setLocation (xno,yno);
 				
-				double xne = pointDebut.getX()+2.5;
+				double xne = pointDebut.getX()+largeur/2;
 				double yne = pointDebut.getY();
-				PointKm pointNordEst = new PointKm ();
+				pointNordEst = new PointKm ();
 				pointNordEst.setLocation (xne,yne);
 				
-				double xso = pointFin.getX()-2.5;
+				double xso = pointFin.getX()-largeur/2;
 				double yso = pointFin.getY();
-				PointKm pointSudOuest = new PointKm ();
+				pointSudOuest = new PointKm ();
 				pointSudOuest.setLocation (xso,yso);
 				
-				double xse = pointFin.getX()+2.5;
+				double xse = pointFin.getX()+largeur/2;
 				double yse = pointFin.getY();
-				PointKm pointSudEst = new PointKm ();
+				pointSudEst = new PointKm ();
 				pointSudEst.setLocation (xse,yse);
 				
 			} else if (DirectionEnum.HORIZONTAL == direction) {
 				double xno = pointDebut.getX();
-				double yno = pointDebut.getY()-2.5;
-				PointKm pointNordOuest = new PointKm ();
+				double yno = pointDebut.getY()-largeur/2;
+				pointNordOuest = new PointKm ();
 				pointNordOuest.setLocation (xno,yno);
 				
 				double xne = pointFin.getX();
-				double yne = pointFin.getY()-2.5;
-				PointKm pointNordEst = new PointKm ();
+				double yne = pointFin.getY()-largeur/2;
+				pointNordEst = new PointKm ();
 				pointNordEst.setLocation (xne,yne);
 				
 				double xso = pointDebut.getX();
-				double yso = pointDebut.getY()+2.5;
-				PointKm pointSudOuest = new PointKm ();
+				double yso = pointDebut.getY()+largeur/2;
+				pointSudOuest = new PointKm ();
 				pointSudOuest.setLocation (xso,yso);
 				
 				double xse = pointFin.getX();
-				double yse = pointFin.getY()+2.5;
-				PointKm pointSudEst = new PointKm ();
+				double yse = pointFin.getY()+largeur/2;
+				pointSudEst = new PointKm ();
 				pointSudEst.setLocation (xse,yse);
 			}
 		}
