@@ -1,6 +1,6 @@
 package cityproject.exception;
 
-public class QuartierHorsDeVilleException extends Exception {
+public class QuartierHorsDeVilleException extends CityProjectException {
 
 	/**
 	 * 
