@@ -1,5 +1,5 @@
 package transports;
 
-public class TransportsPublics {
+public class TransportsPublics extends Transports{
 
 }
