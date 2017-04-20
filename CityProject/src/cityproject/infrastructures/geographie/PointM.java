@@ -2,6 +2,8 @@ package cityproject.infrastructures.geographie;
 
 import java.awt.Point;
 
+import cityproject.exception.CoordonneesPointMOutOfRangeException;
+
 public class PointM extends Point {
 	private PointKm pointReference;
 
@@ -14,17 +16,21 @@ public class PointM extends Point {
 		super();
 	}
 
-	public PointM(Point p) {
-		super(p);
-	}
-
 	public PointM(int x, int y) {
 		super();
-		int xKm, yKm;
-		if (x > 1000) {
-			// xKm = 
+		pointReference = new PointKm(x/1000, y/1000);
+		setLocation(x%1000, y%1000);
+	}
+	
+	public PointM (PointKm p, int x, int y) throws CoordonneesPointMOutOfRangeException {
+		super();
+		
+		if (x >= 1000 || y >= 1000) {
+			throw new CoordonneesPointMOutOfRangeException("L'abscisse et l'ordonnee doivent etre inferieure a 1000");
 		}
 		
+		pointReference = p;
+		setLocation(x, y);
 	}
 
 	public PointKm getPointReference() {
@@ -35,6 +41,12 @@ public class PointM extends Point {
 		this.pointReference = pointReference;
 	}
 
-	
+	public void setLocation(int x, int y) {
+		if (x >= 1000 || y >= 1000) {
+			pointReference = new PointKm(x/1000, y/1000);
+		}
+		
+		setLocation(x%1000, y%1000);
+	}
 
 }
