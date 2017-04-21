@@ -5,12 +5,13 @@ import java.util.List;
 
 import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
 
 public class Parcelle {
-
-	private List<Croisement> croisements = new ArrayList<Croisement>();
-	private List<Rue> rues = new ArrayList<Rue>();
-	private Coordonnees4Points<PointKm> coord_parcelle, coord_croisement;
+	
+	
+	
+	private Coordonnees4Points<PointM> coord_parcelle;
 
 	/*
 	 * Constructeurs
@@ -20,54 +21,55 @@ public class Parcelle {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Parcelle(Coordonnees4Points<PointKm> coord) {
+	public Parcelle(Coordonnees4Points<PointM> coord) {
 		this.coord_parcelle = coord;
 
 	}
 
-	// méthode de mise en place des parcelles en fonction des cas
-
-	// public void setParcelle(List<Croisement> croisements) throws Exception {
-	// if (croisements.size() == 1) {
-	//
-	// this.croisements = croisements;
-	// } else if (croisements.size() == 2) {
-	//
-	// } else if (croisements.size() == 3) {
-	//
-	// } else if (croisements.size() == 4) {
-	//
-	// }
-	// throw new Exception("A définir");
-	// }
+public Coordonnees4Points<PointM> getCoordonneesParcelle(){
+	
+	return coord_parcelle;
+}
 
 	/*
 	 * Méthode pour vérifier qu'un croisement est contenu dans la liste de
 	 * croisements
 	 */
 
-	public boolean asCroisement(Croisement _croisement) {
-		return croisements.contains(_croisement);
-	}
+//	public boolean asCroisement(Croisement _croisement) {
+//		
+//		List<Croisement> croisements = new ArrayList<Croisement>();
+//		
+//		return croisements.contains(_croisement);
+//	}
 
 	/*
-	 * Méthode de calcul des coordonnees de parcelle
+	 * Méthode de calcul des positions de toutes les parcelles
 	 */
 
-	public void calculCoordonneesParcelle() {
+	public void calculPositionsParcelles() {
+		
+		Ville ville = new Ville();
+		List<Parcelle> parcelles = new ArrayList<Parcelle>();
+		List<Croisement> croisements = new ArrayList<Croisement>();
+		List<Rue> rues = new ArrayList<Rue>();
+		
+		//3 méthodes à définir dans la Class Ville ou Quartier peut être pour récupérer les listes de parcelles, rues, et croisements
+		parcelles = ville.getListeDeParcelles();
+		croisements = ville.getListeDeCroisements();
+		//rues = ville.getListeDeRues();
 
 		for (Croisement c : croisements) {
 
-			List<PointKm> coord_croisement = c.getCoordonneesCroisement();
+			List<PointM> coord_croisement = c.getCoordonneesCroisement();
 
 			int i = 0;
-			PointKm point1 = new PointKm(0, 0); // point de parcours sur axe E-O
-			PointKm point2 = new PointKm(0, 0); // point de parcours sur axe N-S
-			PointKm point3 = new PointKm(0, 0); // dernier point pour constituer la parcelle, les coordonnees sont calculées
+			int x1, y1, x2, y2, x3, y3;
+			PointM point1 = null; // point de parcours sur axe E-O
+			PointM point2 = null; // point de parcours sur axe N-S
+			PointM point3 = null; // dernier point pour constituer la parcelle, les coordonnees sont calculées
 
-			for (PointKm p : coord_croisement) {
-
-				int x1, y1, x2, y2, x3, y3;
+			for (PointM p : coord_croisement) {
 
 				x1 = (int) p.getX();
 				y1 = (int) p.getY();
@@ -105,11 +107,13 @@ public class Parcelle {
 					coord_parcelle.ajouterElement(point1); //point SO
 					coord_parcelle.ajouterElement(p);	//point SE
 					
+					parcelles.add(this);
+					
 					i++;
 				}
 				
 				/*
-				 * Deuxième cas: On part du point NE et on calcul les coordonnées
+				 * Deuxième cas: On part du point NE et on calcule les coordonnées
 				 * de la parcelle
 				 */
 
@@ -136,6 +140,7 @@ public class Parcelle {
 					coord_parcelle.ajouterElement(p); //point SO
 					coord_parcelle.ajouterElement(point1); //point SE
 					
+					parcelles.add(this);
 					
 					i++;
 				}
@@ -168,6 +173,7 @@ public class Parcelle {
 					coord_parcelle.ajouterElement(point3); // Point SO
 					coord_parcelle.ajouterElement(point2); // Point SE
 					
+					parcelles.add(this);
 					
 					i++;
 				}
@@ -199,34 +205,30 @@ public class Parcelle {
 					coord_parcelle.ajouterElement(point1); // Point NE
 					coord_parcelle.ajouterElement(point2); // Point SO
 					coord_parcelle.ajouterElement(point3); // Point SE
+					
+					parcelles.add(this);
+					
 				}
 			}
 
 		}
 
-		// if (croisements.size() == 4) {
-		//
-		// for (Croisement c : croisements) {
-		//
-		// List<PointKm> listeDePoints = c.getCoordonneesCroisement();
-		//
-		// for (PointKm p : listeDePoints) {
-		//
-		// if (c.getPointIntersection().getX() > pointNordOuest.getX()){
-		//
-		// }
-		//
-		// }
-		// }
-		// }
-
-		// if (croisements.size() == 1) {
-		//
-		// } else if (croisements.size() == 2) {
-		//
-		// } else if (croisements.size() == 3) {
-		//
-		// }
-
 	}
+	
+	//Méthode de mise à jour de la liste de parcelle avec élimination des doublons et des parcelles chevauchantes.
+	
+//	public void simplifyListeDeParcelle() {
+//		
+//		Ville ville = new Ville();
+//		List<Parcelle> parcelles = new ArrayList<Parcelle>();
+//		
+//		parcelles = ville.getListeDeParcelles();
+//		
+//		for (Parcelle p: parcelles){
+//			
+//			
+//		}
+//		
+//	}
+	
 }
