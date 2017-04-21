@@ -36,6 +36,8 @@ public class Parcelle {
 
 
 		List<Parcelle> parcelles = new ArrayList<Parcelle>();
+//		parcelles = ville.getListeDeParcelles();
+		
 		
 		// Ville ville = new Ville();
 		// List<Croisement> croisements = new ArrayList<Croisement>();
@@ -43,7 +45,7 @@ public class Parcelle {
 
 		// 3 méthodes à définir dans la Class Ville ou Quartier peut être pour
 		// récupérer les listes de parcelles, rues, et croisements
-		// parcelles = ville.getListeDeParcelles();
+		
 		// croisements = ville.getListeDeCroisements();
 		// rues = ville.getListeDeRues();
 
@@ -201,7 +203,7 @@ public class Parcelle {
 	}
 
 	// Méthode de mise à jour de la liste de parcelle avec élimination des
-	// doublons et des parcelles chevauchantes.
+	// doublons et des parcelles chevauchantes. A mettre ailleurs je crois
 
 	// public void simplifyListeDeParcelle() {
 	//
