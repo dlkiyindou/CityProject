@@ -1,5 +1,5 @@
 package transports;
 
-public class Trajet {
+public class Trajets {
 
 }

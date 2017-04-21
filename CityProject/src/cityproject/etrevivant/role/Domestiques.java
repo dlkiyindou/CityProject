@@ -1,5 +1,5 @@
 package cityproject.etrevivant.role;
 
-public interface Sauvage {
+public interface Domestiques {
 
 }
