@@ -52,4 +52,5 @@ public class Humain extends EtreVivant implements Locataire, Proprietaire {
 		this.dateNaissance = dateNaissance;
 	}
 
+
 }

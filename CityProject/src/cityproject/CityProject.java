@@ -3,13 +3,14 @@
  */
 package cityproject;
 
-import cityproject.infrastructures.Croisement;
 import cityproject.infrastructures.Quartier;
 import cityproject.infrastructures.Rue;
 import cityproject.infrastructures.Ville;
+import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
 
 
 /**
@@ -59,32 +60,17 @@ public class CityProject {
 		
 		System.out.println(DirectionEnum.HORIZONTAL);
 		
-
-		//System.out.println(coord.listeDePoints);
-		//quartier.setCoord(coord);
-
 		
-		Rue rue1 = new Rue("Rue Dixi", DirectionEnum.HORIZONTAL, new PointKm(5,5), 20);
-		Rue rue2 = new Rue("Rue Bertrand", DirectionEnum.VERTICAL, new PointKm(1,3), 10);
+		Rue rue = new Rue("Ma belle rue");
+		Coordonnees4Points<PointM> coordRue = new Coordonnees4Points<PointM>();
+		coordRue.ajouterElement(new PointM(5, 5));
+		coordRue.ajouterElement(new PointM(15, 5));
+		coordRue.ajouterElement(new PointM(5, 15));
+		coordRue.ajouterElement(new PointM(10, 5));
 		
-//		Croisement croisement1;
-//		croisement1.setRues(rue1,rue2);
-		
-		
-//		Coordonnees4Points<PointM> coordRue = new Coordonnees4Points<PointM>();
-//		coordRue.ajouterElement(new PointM(5, 5));
-//		coordRue.ajouterElement(new PointM(15, 5));
-//		coordRue.ajouterElement(new PointM(5, 15));
-//		coordRue.ajouterElement(new PointM(10, 5));
-
-		
-
-		System.out.println(quartier.toString());
-		
-//		if (coordRue.isValid()) {
+		if (coordRue.isValid()) {
 //			rue.setCoordonnees(coordRue);
 		}
-
 	}
 
-
+}
