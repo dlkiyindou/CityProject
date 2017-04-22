@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import cityproject.infrastructures.geographie.Coordonnees4Points;
+import cityproject.infrastructures.geographie.PointM;
 
 public class Croisement extends Infrastructure {
 	private List<Rue> rues;
@@ -43,6 +44,12 @@ public class Croisement extends Infrastructure {
 	public boolean asRue(Rue _rue) {
 		return rues.contains(_rue);
 	}
+
+	public Coordonnees4Points<PointM> getCoordonneesCroisement() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 //	public Coordonnees4Points getCoordonneesCroisement() {
 //		

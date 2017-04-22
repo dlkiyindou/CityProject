@@ -7,6 +7,8 @@ import cityproject.exception.CoordonneesPointMOutOfRangeException;
 public class PointM extends Point {
 	private PointKm pointReference;
 
+	public PointM isPointCroisement;
+
 	/**
 	 * 
 	 */
@@ -47,6 +49,11 @@ public class PointM extends Point {
 		}
 		
 		setLocation(x%1000, y%1000);
+	}
+
+	public PointM isPointExtremeRue() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
