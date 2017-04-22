@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import cityproject.exception.CityProjectException;
+
 /**
  * @author Dixi
  *
@@ -55,7 +57,7 @@ public class CoordonneesGeographiques <E extends Point> {
 	 * 
 	 * @throws Exception 
 	 */
-	public void ajouterElement(E e) throws Exception {
+	public void ajouterElement(E e) throws CityProjectException {
 		listeDePoints.add(e);
 		updatePolygon();
 	}

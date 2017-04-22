@@ -1,7 +1,5 @@
 package cityproject.infrastructures;
 
-import java.awt.Polygon;
-
 import cityproject.exception.QuartierHorsDeVilleException;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.PointKm;
