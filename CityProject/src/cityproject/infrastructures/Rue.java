@@ -2,6 +2,7 @@ package cityproject.infrastructures;
 
 import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
 
 public class Rue extends Infrastructure {
 	private DirectionEnum direction;
@@ -19,6 +20,10 @@ public class Rue extends Infrastructure {
 	
 	public Rue() throws Exception {
 		new Rue(null, null, 0, DirectionEnum.HORIZONTAL);
+	}
+
+	public Rue(String nom) {
+		super(nom);
 	}
 	
 	public Rue (String nom) throws Exception{

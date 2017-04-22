@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import cityproject.infrastructures.geographie.Coordonnees4Points;
+
 public class Croisement extends Infrastructure {
 	private List<Rue> rues;
 	
@@ -12,12 +14,12 @@ public class Croisement extends Infrastructure {
 		rues = new ArrayList<Rue>();
 	}
 	
-	public Croisement(Rue ... _rues) throws Exception {
+	public Croisement(Rue ... _rues) {
 		this();
 		setRues(_rues);
 	}
 	
-	public Croisement(String _nom, Rue ... _rues) throws Exception {
+	public Croisement(String _nom, Rue ... _rues) {
 		this(_rues);
 		setNom(_nom);
 	}
@@ -25,25 +27,38 @@ public class Croisement extends Infrastructure {
 	public List<Rue> getRues() {
 		return rues;
 	}
-	
 
-	public void setRues(Rue ... _rues) throws Exception {
-		if (rues.size() != 2) {
-			throw new Exception("Un croisement ne peut etre qu'entre deux rues");
-		}
+	public void setRues(Rue ... _rues) {
 		rues.addAll(Arrays.asList(_rues));
 	}
 
-	public void setRues(List<Rue> rues) throws Exception {
-		if (rues.size() != 2) {
-			throw new Exception("Un croisement ne peut etre qu'entre deux rues");
-		}
-		
+	public void setRues(List<Rue> rues) {
 		this.rues = rues;
 	}
 	
+	public boolean addRue(Rue _rue) {
+		return rues.add(_rue);
+	}
 	
 	public boolean asRue(Rue _rue) {
 		return rues.contains(_rue);
 	}
+
+//	public Coordonnees4Points getCoordonneesCroisement() {
+//		
+//		return coord;
+//		// TODO Auto-generated method stub
+//		
+//	}
+	
+//	public PointKm getPointIntersection(){
+//		
+//		return point;
+//	}
+	
+//	public void setCroisement(){
+//		
+//		
+//	
+//	}
 }
