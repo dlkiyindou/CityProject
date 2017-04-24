@@ -3,36 +3,35 @@ package cityproject.infrastructures;
 import java.util.ArrayList;
 import java.util.List;
 
+import cityproject.exception.CityProjectException;
 import cityproject.infrastructures.geographie.Coordonnees4Points;
-import cityproject.infrastructures.geographie.PointKm;
 import cityproject.infrastructures.geographie.PointM;
 
 public class Parcelle {
 
-	private Coordonnees4Points<PointM> coord_parcelle;
+	private Coordonnees4Points<PointM> coordParcelle;
 
 	/*
 	 * Constructeurs
 	 */
-
 	public Parcelle() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Parcelle(Coordonnees4Points<PointM> coord) {
-		this.coord_parcelle = coord;
+		this.coordParcelle = coord;
 
 	}
 
 	public Coordonnees4Points<PointM> getCoordonneesParcelle() {
-		return coord_parcelle;
+		return coordParcelle;
 	}
 
 	/*
 	 * Méthode de calcul de la position d'une parcelle
 	 */
 
-	public void calculPositionParcelle(PointM p, Croisement c) {
+	public void calculPositionParcelle(PointM p, Croisement c) throws CityProjectException {
 
 
 		List<Parcelle> parcelles = new ArrayList<Parcelle>();
@@ -58,9 +57,8 @@ public class Parcelle {
 		PointM point3 = null; // dernier point pour constituer la parcelle, les
 								// coordonnees sont calculées
 		
-		// Rajouter un appel à méthode pour déterminer la position d'un point en termes cardinaux NO NE SO SE dans la série de point croisement
-		// méthode à écrire dans point probablement
-
+		// Rajouter un appel à méthode pour déterminer la position d'un point en termes cardinaux 
+		// NO NE SO SE dans la série de point croisement méthode à écrire dans point probablement
 		x1 = (int) p.getX();
 		y1 = (int) p.getY();
 		point1.setLocation(x1, y1);
@@ -69,11 +67,8 @@ public class Parcelle {
 		y2 = (int) p.getY();
 		point2.setLocation(x2, y2);
 
-		/*
-		 * Premier cas: On part du point NO et on calcule les coordonnées de la
-		 * parcelle
-		 */
 
+		// Premier cas: On part du point NO et on calcule les coordonnées de la parcelle
 		if (i == 0) {
 
 			do {
@@ -92,21 +87,17 @@ public class Parcelle {
 			y3 = (int) point2.getY();
 			point3.setLocation(x3, y3);
 
-			coord_parcelle.ajouterElement(point3); // point NO
-			coord_parcelle.ajouterElement(point2); // point NE
-			coord_parcelle.ajouterElement(point1); // point SO
-			coord_parcelle.ajouterElement(p); // point SE
+			coordParcelle.ajouterElement(point3); // point NO
+			coordParcelle.ajouterElement(point2); // point NE
+			coordParcelle.ajouterElement(point1); // point SO
+			coordParcelle.ajouterElement(p); // point SE
 
 			parcelles.add(this);
 
 			i++;
 		}
 
-		/*
-		 * Deuxième cas: On part du point NE et on calcule les coordonnées de la
-		 * parcelle
-		 */
-
+		// Deuxième cas: On part du point NE et on calcule les coordonnées de la parcelle
 		if (i == 1) {
 
 			do {
@@ -125,21 +116,17 @@ public class Parcelle {
 			y3 = (int) point2.getY();
 			point3.setLocation(x3, y3);
 
-			coord_parcelle.ajouterElement(point2);// point NO
-			coord_parcelle.ajouterElement(point3); // point NE
-			coord_parcelle.ajouterElement(p); // point SO
-			coord_parcelle.ajouterElement(point1); // point SE
+			coordParcelle.ajouterElement(point2);// point NO
+			coordParcelle.ajouterElement(point3); // point NE
+			coordParcelle.ajouterElement(p); // point SO
+			coordParcelle.ajouterElement(point1); // point SE
 
 			parcelles.add(this);
 
 			i++;
 		}
 
-		/*
-		 * Troisième cas: On part du point SO et on calcule les coordonnées de
-		 * la parcelle
-		 */
-
+		// Troisième cas: On part du point SO et on calcule les coordonnées de la parcelle
 		if (i == 2) {
 
 			do {
@@ -158,21 +145,17 @@ public class Parcelle {
 			y3 = (int) point2.getY();
 			point3.setLocation(x3, y3);
 
-			coord_parcelle.ajouterElement(point1); // Point NO
-			coord_parcelle.ajouterElement(p); // Point NE
-			coord_parcelle.ajouterElement(point3); // Point SO
-			coord_parcelle.ajouterElement(point2); // Point SE
+			coordParcelle.ajouterElement(point1); // Point NO
+			coordParcelle.ajouterElement(p); // Point NE
+			coordParcelle.ajouterElement(point3); // Point SO
+			coordParcelle.ajouterElement(point2); // Point SE
 
 			parcelles.add(this);
 
 			i++;
 		}
 
-		/*
-		 * Quatrième cas: On part du point SE et on calcule les coordonnées de
-		 * la parcelle
-		 */
-
+		// Quatrième cas: On part du point SE et on calcule les coordonnées de la parcelle
 		if (i == 3) {
 
 			do {
@@ -191,10 +174,10 @@ public class Parcelle {
 			y3 = (int) point2.getY();
 			point3.setLocation(x3, y3);
 
-			coord_parcelle.ajouterElement(p); // Point NO
-			coord_parcelle.ajouterElement(point1); // Point NE
-			coord_parcelle.ajouterElement(point2); // Point SO
-			coord_parcelle.ajouterElement(point3); // Point SE
+			coordParcelle.ajouterElement(p); // Point NO
+			coordParcelle.ajouterElement(point1); // Point NE
+			coordParcelle.ajouterElement(point2); // Point SO
+			coordParcelle.ajouterElement(point3); // Point SE
 
 			parcelles.add(this);
 
@@ -202,9 +185,8 @@ public class Parcelle {
 
 	}
 
-	// Méthode de mise à jour de la liste de parcelle avec élimination des
+	// Methode de mise à jour de la liste de parcelle avec élimination des
 	// doublons et des parcelles chevauchantes. A mettre ailleurs je crois
-
 	// public void simplifyListeDeParcelle() {
 	//
 	// Ville ville = new Ville();
