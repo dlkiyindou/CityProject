@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import cityproject.infrastructures.Quartier;
@@ -25,6 +28,16 @@ public class CityProjectPanel extends JPanel {
 		listQuartiers =  new ArrayList<Quartier>();
 		ville = _ville;
 		listQuartiers = Arrays.asList(q);
+		
+		init();
+	}
+	
+	private void init () {
+		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		Box box1 = new Box(BoxLayout.Y_AXIS);
+		box1.add(new JButton("Bouton 1"));
+		box1.add(new JButton("Bouton 2"));
+		add(box1);
 	}
 
 	public void paintComponent(Graphics g){ 
