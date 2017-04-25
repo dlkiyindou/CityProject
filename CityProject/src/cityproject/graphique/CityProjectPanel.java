@@ -1,11 +1,14 @@
 package cityproject.graphique;
 
+import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -23,6 +26,9 @@ public class CityProjectPanel extends JPanel {
 	private Ville ville;
 	private List<Quartier> listQuartiers;
 	
+	private Box bloc1;
+	private Box bloc2;
+	private Container container;
 	public CityProjectPanel (Ville _ville, Quartier ... q) {
 		super();
 		listQuartiers =  new ArrayList<Quartier>();
@@ -33,11 +39,32 @@ public class CityProjectPanel extends JPanel {
 	}
 	
 	private void init () {
-		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-		Box box1 = new Box(BoxLayout.Y_AXIS);
-		box1.add(new JButton("Bouton 1"));
-		box1.add(new JButton("Bouton 2"));
-		add(box1);
+//		container = new Container();
+//		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+//		
+//		bloc1 = new Box(BoxLayout.X_AXIS);
+//		bloc2 = new Box(BoxLayout.X_AXIS);
+//		
+//		bloc1.add(new JButton("Zoom -"));
+//		bloc1.add(new JButton("Zoom +"));
+//		bloc2.add(container);
+//		
+//		add(bloc1);
+//		add(bloc2);
+		
+		JButton b1 = new JButton("Zoom -");
+	    b1.setVerticalTextPosition(AbstractButton.CENTER);
+	    b1.setHorizontalTextPosition(AbstractButton.LEADING); //aka LEFT, for left-to-right locales
+//	    b1.setMnemonic(KeyEvent.VK_D);
+//	    b1.setActionCommand("disable");
+
+	    JButton b2 = new JButton("Zoom +");
+	    b2.setVerticalTextPosition(AbstractButton.BOTTOM);
+	    b2.setHorizontalTextPosition(AbstractButton.CENTER);
+//	    b2.setMnemonic(KeyEvent.VK_M);
+	    
+	    add(b1);
+	    add(b2);
 	}
 
 	public void paintComponent(Graphics g){ 
