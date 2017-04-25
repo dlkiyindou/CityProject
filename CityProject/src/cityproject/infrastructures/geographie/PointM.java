@@ -7,7 +7,7 @@ import cityproject.exception.CoordonneesPointMOutOfRangeException;
 public class PointM extends Point {
 	private PointKm pointReference;
 
-	public PointM isPointCroisement;
+
 
 	/**
 	 * 
@@ -52,6 +52,16 @@ public class PointM extends Point {
 	}
 
 	public PointM isPointExtremeRue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CardinalityEnum getCardinality(Coordonnees4Points<PointM> coord_croisement) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public PointM isPointCroisement() {
 		// TODO Auto-generated method stub
 		return null;
 	}

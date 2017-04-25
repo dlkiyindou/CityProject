@@ -3,7 +3,6 @@ package cityproject.infrastructures;
 import cityproject.exception.CityProjectException;
 import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
-import cityproject.infrastructures.geographie.PointM;
 
 public class Rue extends Infrastructure {
 	private DirectionEnum direction;
