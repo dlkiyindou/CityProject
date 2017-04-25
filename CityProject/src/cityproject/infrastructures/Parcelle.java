@@ -1,8 +1,5 @@
 package cityproject.infrastructures;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import cityproject.exception.CityProjectException;
 import cityproject.infrastructures.geographie.CardinalityEnum;
 import cityproject.infrastructures.geographie.Coordonnees4Points;
@@ -149,32 +146,5 @@ public class Parcelle {
 
 	}
 
-	public void updateListParcelles() {
-		List<Parcelle> parcelles = new ArrayList<Parcelle>();
-		
-		
-
-	}
-
-	
-	
-
-	
-	
-	
-	
-
-	// Methode de mise à jour de la liste de parcelle avec élimination des
-	// doublons et des parcelles chevauchantes. A mettre ailleurs je crois
-	// public void simplifyListeDeParcelle() {
-	//
-	// Ville ville = new Ville();
-	// List<Parcelle> parcelles = new ArrayList<Parcelle>();
-	//
-	// parcelles = ville.getListeDeParcelles();
-	//
-	// for (Parcelle p: parcelles){
-	// }
-	// }
 
 }
