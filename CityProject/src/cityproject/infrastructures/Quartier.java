@@ -67,14 +67,14 @@ public class Quartier extends Infrastructure{
 	}	
 	
 
-	private double calculLongueurQuartier () {
-		while (les abscisse de deux coordville sont = )
-			public static double distance (double x1, double y1, double x2, double y2) {
-				return distance;
-		}
-	Double longueurQuartier = new Double ();
-	
-	}
+//	private double calculLongueurQuartier () {
+//		while (les abscisse de deux coordville sont = )
+//			public static double distance (double x1, double y1, double x2, double y2) {
+//				return distance;
+//		}
+//	Double longueurQuartier = new Double ();
+//	
+//	}
 	
 	private void calculLargeurMaxQuartier () {
 		
