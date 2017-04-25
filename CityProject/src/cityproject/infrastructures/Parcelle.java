@@ -12,17 +12,66 @@ public class Parcelle {
 	private PointM pointNordEst = new PointM();
 	private PointM pointSudOuest = new PointM();
 	private PointM pointSudEst = new PointM();
-	
+
 	/*
 	 * Constructeurs
 	 */
-	public Parcelle() {
-		// TODO Auto-generated constructor stub
+	public Parcelle() throws CityProjectException {
+		super();
+		setPointNordOuest(null);
+		setPointNordEst(null);
+		setPointSudOuest(null);
+		setPointSudEst(null);
+		setCoordParcelle(null);
+	}
+	
+	public Parcelle(PointM p, Croisement c) throws CityProjectException {
+		super();
+		calculPositionParcelle(p,c);
+	}
+	
+	/*
+	 * Setters
+	 */
+
+	public void setCoordParcelle(Coordonnees4Points<PointM> coordParcelle) {
+		this.coordParcelle = coordParcelle;
 	}
 
-	public Parcelle(Coordonnees4Points<PointM> coord) {
-		this.coordParcelle = coord;
+	public void setPointNordOuest(PointM pointNordOuest) {
+		this.pointNordOuest = pointNordOuest;
+	}
 
+	public void setPointNordEst(PointM pointNordEst) {
+		this.pointNordEst = pointNordEst;
+	}
+
+	public void setPointSudOuest(PointM pointSudOuest) {
+		this.pointSudOuest = pointSudOuest;
+	}
+
+	public void setPointSudEst(PointM pointSudEst) {
+		this.pointSudEst = pointSudEst;
+	}
+	
+	/*
+	 * Getters
+	 */
+
+	public PointM getPointNordOuest() {
+		return pointNordOuest;
+	}
+
+	public PointM getPointNordEst() {
+		return pointNordEst;
+	}
+
+	public PointM getPointSudOuest() {
+		return pointSudOuest;
+	}
+
+	public PointM getPointSudEst() {
+		return pointSudEst;
 	}
 
 	public Coordonnees4Points<PointM> getCoordonneesParcelle() {
@@ -42,12 +91,12 @@ public class Parcelle {
 		int x1, y1, x2, y2, x3, y3;
 
 		// point de parcours sur axe E-O
-		PointM pointParcoursAxeEO = new PointM(0,0);
+		PointM pointParcoursAxeEO = new PointM(0, 0);
 		// point de parcours sur axe N-S
-		PointM pointParcoursAxeNS = new PointM(0,0);
+		PointM pointParcoursAxeNS = new PointM(0, 0);
 		// dernier point pour constituer la parcelle, les coordonnees sont
 		// calculées
-		PointM pointCalcule = new PointM(0,0);
+		PointM pointCalcule = new PointM(0, 0);
 
 		// Initialisation de la position des points
 
@@ -72,7 +121,7 @@ public class Parcelle {
 			x3 = (int) pointParcoursAxeEO.getX();
 			y3 = (int) pointParcoursAxeNS.getY();
 			pointCalcule.setLocation(x3, y3);
-			
+
 			pointNordOuest = pointCalcule;
 			pointNordEst = pointParcoursAxeNS;
 			pointSudOuest = pointParcoursAxeEO;
@@ -141,10 +190,9 @@ public class Parcelle {
 			y3 = (int) pointParcoursAxeNS.getY();
 			pointCalcule.setLocation(x3, y3);
 		}
-		
+
 		coordParcelle.ajouterElements(pointNordOuest, pointNordEst, pointSudOuest, pointSudEst);
 
 	}
-
 
 }

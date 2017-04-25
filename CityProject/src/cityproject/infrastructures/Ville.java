@@ -10,7 +10,7 @@ import cityproject.infrastructures.geographie.PointKm;
 
 public class Ville extends Infrastructure {
 	private CoordonneesGeographiques<PointKm> coordonnees;
-	private List<Parcelle> listedeparcelles = new ArrayList<Parcelle>();
+	private List<Parcelle> listeparcelles;
 
 	public Ville() {
 		super();
@@ -34,7 +34,7 @@ public class Ville extends Infrastructure {
 	}
 
 	public List<Parcelle> getListeDeParcelles() {
-		return listedeparcelles;
+		return listeparcelles;
 	}
 
 	public void updateListDeParcelles() {
