@@ -1,6 +1,9 @@
 package cityproject.infrastructures;
 
-import java.awt.Polygon;
+import java.util.ArrayList;
+import java.util.List;
+import cityproject.infrastructures.Rue;
+import cityproject.infrastructures.Croisement;
 
 import cityproject.exception.QuartierHorsDeVilleException;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
@@ -56,6 +59,24 @@ public class Quartier extends Infrastructure{
 	public boolean estDansVille(Ville ville) {
 		return ville.getCoordonnees().contient(coordonnees);
 	}
+	public List<Rue> getRue() {
+		return getRue();
+	}	
+	public List<Croisement> getCroisement() {
+		return getCroisement();
+	}	
 	
+
+	private double calculLongueurQuartier () {
+		while (les abscisse de deux coordville sont = )
+			public static double distance (double x1, double y1, double x2, double y2) {
+				return distance;
+		}
+	Double longueurQuartier = new Double ();
 	
+	}
+	
+	private void calculLargeurMaxQuartier () {
+		
+	}
 }

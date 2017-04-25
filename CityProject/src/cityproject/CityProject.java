@@ -3,14 +3,13 @@
  */
 package cityproject;
 
+import cityproject.exception.CityProjectException;
+import cityproject.graphique.CityProjectFenetre;
+import cityproject.graphique.CityProjectPanel;
 import cityproject.infrastructures.Quartier;
-import cityproject.infrastructures.Rue;
 import cityproject.infrastructures.Ville;
-import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
-import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
-import cityproject.infrastructures.geographie.PointM;
 
 
 /**
@@ -24,14 +23,34 @@ public class CityProject {
 	 */
 	public static void main(String[] args) throws Exception {
 		// Creation de la ville
+		Ville ville = creerVille();	
+		Quartier quartier = creerQuartier(ville);
+		
+		CityProjectFenetre fenetre = new CityProjectFenetre();
+		CityProjectPanel villeGraphe = new CityProjectPanel(ville, quartier);
+		
+		villeGraphe.paintComponents(fenetre.getGraphics());
+		fenetre.setContentPane(villeGraphe);
+		
+		fenetre.initFenetre();
+	}
+	
+	
+	private static Ville creerVille() throws CityProjectException {
 		Ville ville = new Ville("CityProject ville");
 		CoordonneesGeographiques<PointKm> coordVille = new CoordonneesGeographiques<PointKm>();
-		coordVille.ajouterElements(new PointKm(1, 30), new PointKm(5, 50), new PointKm(10, 55), new PointKm(15, 70), 
-				new PointKm(25, 72), new PointKm(35, 65), new PointKm(65, 68), new PointKm(100, 65), new PointKm(110, 50));
-		
-		PointKm[] mesPoints = {new PointKm(115, 25), new PointKm(110, 3), new PointKm(100, 1)};
-		coordVille.ajouterElements(mesPoints);
-		
+		coordVille.ajouterElement(new PointKm(1, 30));
+		coordVille.ajouterElement(new PointKm(5, 50));
+		coordVille.ajouterElement(new PointKm(10, 55));
+		coordVille.ajouterElement(new PointKm(15, 70));
+		coordVille.ajouterElement(new PointKm(25, 72));
+		coordVille.ajouterElement(new PointKm(35, 65)); 
+		coordVille.ajouterElement(new PointKm(65, 68)); 
+		coordVille.ajouterElement(new PointKm(100, 65)); 
+		coordVille.ajouterElement(new PointKm(110, 50));		
+		coordVille.ajouterElement(new PointKm(115, 25));
+		coordVille.ajouterElement(new PointKm(110, 3));
+		coordVille.ajouterElement(new PointKm(100, 1));
 		coordVille.ajouterElement(new PointKm(90, 15));
 		coordVille.ajouterElement(new PointKm(75, 20));
 		coordVille.ajouterElement(new PointKm(60, 25));
@@ -40,7 +59,10 @@ public class CityProject {
 		coordVille.ajouterElements(new PointKm(15, 1), new PointKm(4, 3));
 		ville.setCoordonnees(coordVille);
 		
-		
+		return ville;
+	}
+	
+	private static Quartier creerQuartier(Ville ville) throws CityProjectException {
 		Quartier quartier = new Quartier("Le quartier centrale");
 		CoordonneesGeographiques<PointKm> coordQuartier = new CoordonneesGeographiques<PointKm>();
 		coordQuartier.ajouterElement(new PointKm(10, 30));
@@ -56,21 +78,8 @@ public class CityProject {
 				
 		quartier.setCoordonnees(coordQuartier);
 		quartier.setVille(ville);
-		System.out.println(quartier);
 		
-		System.out.println(DirectionEnum.HORIZONTAL);
-		
-		
-		Rue rue = new Rue("Ma belle rue");
-		Coordonnees4Points<PointM> coordRue = new Coordonnees4Points<PointM>();
-		coordRue.ajouterElement(new PointM(5, 5));
-		coordRue.ajouterElement(new PointM(15, 5));
-		coordRue.ajouterElement(new PointM(5, 15));
-		coordRue.ajouterElement(new PointM(10, 5));
-		
-		if (coordRue.isValid()) {
-//			rue.setCoordonnees(coordRue);
-		}
+		return quartier;
 	}
 
 }

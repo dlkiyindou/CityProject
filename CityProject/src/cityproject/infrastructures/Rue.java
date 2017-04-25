@@ -1,11 +1,13 @@
 package cityproject.infrastructures;
 
+import cityproject.exception.CityProjectException;
 import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
 
 public class Rue extends Infrastructure {
 	private DirectionEnum direction;
-	private static int largeur = 5;
+	private final int largeur = 5;
 	// Milieu de la rue
 	private PointKm pointOrigine;
 	// Longueur de la rue, en Km 
@@ -17,13 +19,24 @@ public class Rue extends Infrastructure {
 	private PointKm pointSudOuest;
 	private PointKm pointSudEst;
 	
-	public Rue() throws Exception {
-		new Rue(null, null, 0, DirectionEnum.HORIZONTAL);
+	public Rue() throws CityProjectException {
+		super();
+		//completer (créer des paramètres par défault)
+		setNom(null);
+		setLongueur(0);
+		setPointOrigine(null);
+		setDirection(DirectionEnum.HORIZONTAL);
+		calculCoordonnees ();
 	}
 	
 	public Rue (String nom) throws Exception{
-		super(nom);
-		new Rue (nom, null, 0, DirectionEnum.HORIZONTAL);
+		super();
+		//completer (créer des paramètres par défault)
+		setNom(nom);
+		setLongueur(0);
+		setPointOrigine(null);
+		setDirection(DirectionEnum.HORIZONTAL);
+		calculCoordonnees ();
 	}
 	
 	public Rue (String nom, PointKm origine, int longueur, DirectionEnum direction) throws Exception {
@@ -64,12 +77,8 @@ public class Rue extends Infrastructure {
 		////verifier si le point d'origine a ete mis et si oui calcule des coordonnees des points debut et fin
 	}
 	
-	public static int getLargeur() {
+	public int getLargeur() {
 		return largeur;
-	}
-
-	public static void setLargeur(int largeur) {
-		Rue.largeur = largeur;
 	}
 
 	private void calculCoordonnees () {

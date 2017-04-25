@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import cityproject.exception.CityProjectException;
+
 /**
  * @author Dixi
  *
@@ -50,12 +52,17 @@ public class CoordonneesGeographiques <E extends Point> {
 		updatePolygon();
 	}
 	
+	public void setListeDePoints(List<E> _listeDePoints) {
+		listeDePoints = _listeDePoints;
+		updatePolygon();
+	}
+	
 	/**
 	 * @param e
 	 * 
 	 * @throws Exception 
 	 */
-	public void ajouterElement(E e) throws Exception {
+	public void ajouterElement(E e) throws CityProjectException {
 		listeDePoints.add(e);
 		updatePolygon();
 	}
@@ -96,9 +103,9 @@ public class CoordonneesGeographiques <E extends Point> {
 	
 	public String toString () {
 		StringBuilder chaine = new StringBuilder("\t Liste de points : {");
-		if (listeDePoints != null) {
+		if (getListeDePoints() != null) {
 			int i = 0;
-			for (E e : listeDePoints) {
+			for (E e : getListeDePoints()) {
 				chaine.append("\n Point ");
 				chaine.append(i++);
 				chaine.append(" : ");
@@ -117,7 +124,7 @@ public class CoordonneesGeographiques <E extends Point> {
 			int ys[] = new int[j];
 			int i = 0;
 			
-			for (E e : listeDePoints) {
+			for (E e : getListeDePoints()) {
 				xs[i] = (int)e.getX();
 				ys[i] = (int)e.getY();
 				i++;
