@@ -6,11 +6,15 @@ import cityproject.infrastructures.Rue;
 import cityproject.infrastructures.Croisement;
 
 import cityproject.exception.QuartierHorsDeVilleException;
+import cityproject.exception.QuartierPasDeCoordonnees;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.PointKm;
 
 public class Quartier extends Infrastructure{
-	private CoordonneesGeographiques<PointKm> coordonnees;
+	private CoordonneesGeographiques<PointKm> coordonnees = null;
+	private double largeurQuartier = 0;
+	private double longueurQuartier = 0;
+	
 	public CoordonneesGeographiques<PointKm> getCoordonnees() {
 		return coordonnees;
 	}
@@ -67,16 +71,49 @@ public class Quartier extends Infrastructure{
 	}	
 	
 
-//	private double calculLongueurQuartier () {
-//		while (les abscisse de deux coordville sont = )
-//			public static double distance (double x1, double y1, double x2, double y2) {
-//				return distance;
-//		}
-//	Double longueurQuartier = new Double ();
-//	
-//	}
-	
-	private void calculLargeurMaxQuartier () {
-		
+	public void calculLargeurQuartier () throws QuartierPasDeCoordonnees {
+		if (coordonnees == null){
+			throw new QuartierPasDeCoordonnees();	
+		}
+		List<PointKm> listeCoordonnees=coordonnees.getListeDePoints();
+		double xMin = Double.MAX_VALUE;
+		double xMax = 0;
+		for (PointKm e : listeCoordonnees) {
+			double x = e.getX();
+			if (x<xMin){
+				xMin=x;
+			}
+			if (x>xMax){
+				xMax=x;
+			}
+		}
+		largeurQuartier = xMax-xMin;
 	}
+	public double getlargeurQuartier() {
+		return largeurQuartier;
+	}
+	
+	public void calculLongueurQuartier () throws QuartierPasDeCoordonnees {
+		if (coordonnees == null){
+			throw new QuartierPasDeCoordonnees();	
+		}
+		List<PointKm> listeCoordonnees=coordonnees.getListeDePoints();
+		double yMin = Double.MAX_VALUE;
+		double yMax = 0;
+		for (PointKm e : listeCoordonnees) {
+			double y = e.getY();
+			if (y<yMin){
+				yMin=y;
+			}
+			if (y>yMax){
+				yMax=y;
+			}
+		}
+		longueurQuartier = yMax-yMin;
+	}
+	public double getlongueurQuartier() {
+		return longueurQuartier;
+	}
+	
+	
 }
