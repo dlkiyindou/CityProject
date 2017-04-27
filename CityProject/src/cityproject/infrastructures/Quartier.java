@@ -12,8 +12,8 @@ import cityproject.infrastructures.geographie.PointKm;
 
 public class Quartier extends Infrastructure{
 	private CoordonneesGeographiques<PointKm> coordonnees = null;
-	private double largeurQuartier = 0;
-	private double longueurQuartier = 0;
+	double largeurQuartier = 0;
+	double longueurQuartier = 0;
 	
 	public CoordonneesGeographiques<PointKm> getCoordonnees() {
 		return coordonnees;

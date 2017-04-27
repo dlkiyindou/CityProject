@@ -1,6 +1,7 @@
 package cityproject.infrastructures;
 
 import cityproject.exception.CityProjectException;
+import cityproject.infrastructures.Quartier;
 import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
 
@@ -10,13 +11,14 @@ public class Rue extends Infrastructure {
 	// Milieu de la rue
 	private PointKm pointOrigine;
 	// Longueur de la rue, en Km 
-	private int longueur;
+	private double longueur;
 	private PointKm pointDebut;
 	private PointKm pointFin;
 	private PointKm pointNordOuest;
 	private PointKm pointNordEst;
 	private PointKm pointSudOuest;
 	private PointKm pointSudEst;
+	private Quartier quartier;
 	
 	public Rue() throws CityProjectException {
 		super();
@@ -66,7 +68,12 @@ public class Rue extends Infrastructure {
 		calculCoordonnees ();
 	}
 	
-	public int getLongueur() {
+	public double getLongueur() {
+		if (direction==DirectionEnum.HORIZONTAL) {
+			longueur = quartier.getlargeurQuartier();
+		} else if (direction==DirectionEnum.VERTICAL) {
+			longueur = quartier.getlongueurQuartier();
+		}
 		return longueur;
 	}
 	
