@@ -12,8 +12,8 @@ import cityproject.infrastructures.geographie.PointKm;
 
 public class Quartier extends Infrastructure{
 	private CoordonneesGeographiques<PointKm> coordonnees = null;
-	double largeurQuartier = 0;
-	double longueurQuartier = 0;
+	double distanceHoryzontaleQuartier = 0;
+	double distanceVerticaleQuartier = 0;
 	
 	public CoordonneesGeographiques<PointKm> getCoordonnees() {
 		return coordonnees;
@@ -71,7 +71,7 @@ public class Quartier extends Infrastructure{
 	}	
 	
 
-	public void calculLargeurQuartier () throws QuartierPasDeCoordonnees {
+	public void calculDistanceHoryzontaleQuartier () throws QuartierPasDeCoordonnees {
 		if (coordonnees == null){
 			throw new QuartierPasDeCoordonnees();	
 		}
@@ -87,13 +87,13 @@ public class Quartier extends Infrastructure{
 				xMax=x;
 			}
 		}
-		largeurQuartier = xMax-xMin;
+		distanceHoryzontaleQuartier = xMax-xMin;
 	}
-	public double getlargeurQuartier() {
-		return largeurQuartier;
+	public double getdistanceHoryzontaleQuartier() {
+		return distanceHoryzontaleQuartier;
 	}
 	
-	public void calculLongueurQuartier () throws QuartierPasDeCoordonnees {
+	public void calculDistanceVerticaleQuartier () throws QuartierPasDeCoordonnees {
 		if (coordonnees == null){
 			throw new QuartierPasDeCoordonnees();	
 		}
@@ -109,10 +109,10 @@ public class Quartier extends Infrastructure{
 				yMax=y;
 			}
 		}
-		longueurQuartier = yMax-yMin;
+		distanceVerticaleQuartier = yMax-yMin;
 	}
-	public double getlongueurQuartier() {
-		return longueurQuartier;
+	public double getdistanceVerticaleQuartier() {
+		return distanceVerticaleQuartier;
 	}
 	
 	

@@ -70,9 +70,9 @@ public class Rue extends Infrastructure {
 	
 	public double getLongueur() {
 		if (direction==DirectionEnum.HORIZONTAL) {
-			longueur = quartier.getlargeurQuartier();
+			longueur = quartier.getdistanceHoryzontaleQuartier();
 		} else if (direction==DirectionEnum.VERTICAL) {
-			longueur = quartier.getlongueurQuartier();
+			longueur = quartier.getdistanceVerticaleQuartier();
 		}
 		return longueur;
 	}
