@@ -9,6 +9,7 @@ public class Batiment extends Infrastructure{
 	private String fonction;
 	private Coordonnees4Points<PointM> coordonnees;
 	
+	// constructeur par defaut
 	public Batiment(){
 		setType(null);
 		setTaille(null);
@@ -16,6 +17,7 @@ public class Batiment extends Infrastructure{
 		setCoordonnees(null);
 	}
 	
+	// constructeur avec parametres
 	public Batiment (String type, PointM taille, String fonction, Coordonnees4Points<PointM> coordonnees){
 		setType(type);
 		setTaille(taille);
