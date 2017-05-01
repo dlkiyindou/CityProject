@@ -1,14 +1,15 @@
 package cityproject.infrastructures;
 
+import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.PointM;
 
 public class Batiment extends Infrastructure{
 	private String type;
 	private PointM taille;
 	private String fonction;
-	private PointM coordonnees;
+	private Coordonnees4Points<PointM> coordonnees;
 	
-	public Batiment (String type, PointM taille, String fonction, PointM coordonnees){
+	public Batiment (String type, PointM taille, String fonction, Coordonnees4Points<PointM> coordonnees){
 		setType(type);
 		setTaille(taille);
 		setFonction(fonction);
@@ -39,13 +40,15 @@ public class Batiment extends Infrastructure{
 		this.fonction = fonction;
 	}
 
-	public PointM getCoordonnees() {
+	public Coordonnees4Points<PointM> getCoordonnees() {
 		return coordonnees;
 	}
 
-	public void setCoordonnees(PointM coordonnees) {
+	public void setCoordonnees(Coordonnees4Points<PointM> coordonnees) {
 		this.coordonnees = coordonnees;
 	}
+
+
 	
 	
 	
