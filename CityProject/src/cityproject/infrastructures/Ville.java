@@ -11,6 +11,11 @@ import cityproject.infrastructures.geographie.PointKm;
 public class Ville extends Infrastructure {
 	private CoordonneesGeographiques<PointKm> coordonnees;
 	private List<Parcelle> listeparcelles;
+	private String codepostal;
+
+	public String getCodepostal() {
+		return codepostal;
+	}
 
 	public Ville() {
 		super();
