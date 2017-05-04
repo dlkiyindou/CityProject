@@ -8,12 +8,11 @@ public class Adresse {
 	
 	int numero;
 	Rue rue;
-	Ville ville;
+	Quartier quartier;
 	
 	
 	String nom_rue = rue.getNom();
-	String codepostale = ville.getCodepostal();
-	String nom_ville = ville.getNom();
+	String nom_quartier = quartier.getNom();
 	
 //	Batiment batiment;
 	
@@ -25,8 +24,7 @@ public class Adresse {
 		adresse.append(numero);
 		adresse.append(", ");
 		adresse.append("Rue " + nom_rue + "/n");	
-		adresse.append(codepostale + " ");
-		adresse.append(nom_ville);
+		adresse.append(nom_quartier);
 		
 		return adresse.toString();
 	}

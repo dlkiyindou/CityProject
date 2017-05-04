@@ -13,11 +13,16 @@ import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.PointKm;
 
 public class Quartier extends Infrastructure{
+	
+	
+	private String nom_quartier;
 	private CoordonneesGeographiques<PointKm> coordonnees;
 	
 	private List<Parcelle> listeparcelles;
 	private List<Rue> listerues;
 	private List<Croisement> listcroisements;
+	
+	
 	
 	public List<Parcelle> getListeDeParcelles() {
 		return listeparcelles;
@@ -66,6 +71,10 @@ public class Quartier extends Infrastructure{
 
 	public Ville getVille() {
 		return ville;
+	}
+	
+	public String getNomQuartier() {
+		return nom_quartier;
 	}
 
 	public void setVille(Ville ville) throws QuartierHorsDeVilleException {

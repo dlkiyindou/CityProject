@@ -10,11 +10,6 @@ import cityproject.infrastructures.geographie.PointKm;
 
 public class Ville extends Infrastructure {
 	private CoordonneesGeographiques<PointKm> coordonnees;
-	private String codepostal;
-
-	public String getCodepostal() {
-		return codepostal;
-	}
 
 	public Ville() {
 		super();
@@ -36,7 +31,5 @@ public class Ville extends Infrastructure {
 	public void setCoordonnees(CoordonneesGeographiques<PointKm> coordonnees) {
 		this.coordonnees = coordonnees;
 	}
-
-
 
 }
