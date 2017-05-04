@@ -70,8 +70,11 @@ double orig_x_2 = 4; double orig_y_2 = 4;
 //	        cityproject.infrastructures.Rue.setDirection(DirectionEnum))	
 //          m_1, n_1, m_2, n_2
 //
-//  IF direction = HORIZONTAL, m=0; n=1
-//  IF direction = VERTICAL, m=1; n=0
+//          IF direction = HORIZONTAL +ve, m=0; n=1
+//          IF direction = HORIZONTAL -ve, m=0; n=-1
+//
+//          IF direction = VERTICAL +ve, m=1; n=0
+//          IF direction = VERTICAL -ve, m=-1; n=0
 //
 double m_1 = 0;
 double n_1 = 1;
@@ -99,11 +102,6 @@ System.out.println("largeur_2: " +largeur_2+ ",   ");
 //     e.g. i)  n_1*(y - orig_y_1) = m_1(x - orig_x_1)
 //          ii) n_2*(y - orig_y_2) = m_2(x - orig_x_2)
 //
-//  IF direction = HORIZONTAL +ve, m=0; n=1
-//  IF direction = HORIZONTAL -ve, m=0; n=-1
-//
-//  IF direction = VERTICAL +ve, m=1; n=0
-//  IF direction = VERTICAL -ve, m=-1; n=0
 //
 //  6) reorganiser chaque équation sous la forme:
 //     (avec les nouvelles variables A_1, B_1, C_1, A_2, B_2, C_2)	
