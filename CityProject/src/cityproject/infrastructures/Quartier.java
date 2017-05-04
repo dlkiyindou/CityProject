@@ -1,7 +1,10 @@
 package cityproject.infrastructures;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import cityproject.infrastructures.Rue;
 import cityproject.infrastructures.Croisement;
 
@@ -11,6 +14,28 @@ import cityproject.infrastructures.geographie.PointKm;
 
 public class Quartier extends Infrastructure{
 	private CoordonneesGeographiques<PointKm> coordonnees;
+	
+	private List<Parcelle> listeparcelles;
+	private List<Rue> listerues;
+	private List<Croisement> listcroisements;
+	
+	public List<Parcelle> getListeDeParcelles() {
+		return listeparcelles;
+	}
+
+	public void updateListDeParcelles() {
+		
+		//Suppression des doublons
+		List<Parcelle> parcelles = new ArrayList<Parcelle>();
+		parcelles = this.getListeDeParcelles();
+        Set<Parcelle> set = new HashSet<Parcelle>() ;
+        set.addAll(parcelles) ;
+        ArrayList<Parcelle> updateparcelles = new ArrayList<Parcelle>(set) ;
+        parcelles.addAll(updateparcelles);
+	}
+	
+	
+	
 	public CoordonneesGeographiques<PointKm> getCoordonnees() {
 		return coordonnees;
 	}
