@@ -1,19 +1,27 @@
 package cityproject.infrastructures;
 
+import java.util.List;
+
+import cityproject.etrevivant.Humain;
+import cityproject.etrevivant.role.Proprietaire;
+import cityproject.infrastructures.geographie.Adresse;
 import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.PointM;
 
-public class Batiment extends Infrastructure{
+public class Batiment extends Infrastructure implements Proprietaire{
 	private String type;
 	private PointM taille;
-	private String fonction;
 	private Coordonnees4Points<PointM> coordonnees;
+	private Adresse adresse;
+	private int nbEtages;
+	private List<Proprietaire> listeProprietaires;
+	private int nbDePersonnesDansBatiment;
+	private List<Humain> nomsDesPersonnesDansBatiment;
 	
 	// constructeur par defaut
 	public Batiment(){
 		setType(null);
 		setTaille(null);
-		setFonction(null);
 		setCoordonnees(null);
 	}
 	
@@ -21,7 +29,6 @@ public class Batiment extends Infrastructure{
 	public Batiment (String type, PointM taille, String fonction, Coordonnees4Points<PointM> coordonnees){
 		setType(type);
 		setTaille(taille);
-		setFonction(fonction);
 		setCoordonnees(coordonnees);	
 	}
 	
@@ -41,14 +48,6 @@ public class Batiment extends Infrastructure{
 		this.taille = taille;
 	}
 
-	public String getFonction() {
-		return fonction;
-	}
-
-	public void setFonction(String fonction) {
-		this.fonction = fonction;
-	}
-
 	public Coordonnees4Points<PointM> getCoordonnees() {
 		return coordonnees;
 	}
@@ -57,10 +56,49 @@ public class Batiment extends Infrastructure{
 		this.coordonnees = coordonnees;
 	}
 
+	public Adresse getAdresse() {
+		return adresse;
+	}
 
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	public int getNbEtages() {
+		return nbEtages;
+	}
+
+	public void setNbEtages(int nbEtages) {
+		this.nbEtages = nbEtages;
+	}
+
+	public List<Proprietaire> getListeProprietaires() {
+		return listeProprietaires;
+	}
+
+	public void setListeProprietaires(List<Proprietaire> listeProprietaires) {
+		this.listeProprietaires = listeProprietaires;
+	}
+
+
+	public void entrerDansBatiment(){
+		
+	}
 	
 	
+	public void sortirDeBatiment(){
+		
+	}
 	
 	
+	public int nbDePersonnesDansBatiment(){
+		return nbDePersonnesDansBatiment;
+		
+	}
 	
+	
+	public List<Humain> nomsDesPersonnesDansBatiment(){
+		return nomsDesPersonnesDansBatiment;
+		
+	}
 }
