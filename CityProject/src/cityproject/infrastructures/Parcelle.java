@@ -1,7 +1,7 @@
 package cityproject.infrastructures;
 
 import cityproject.exception.CityProjectException;
-import cityproject.infrastructures.geographie.CardinalityEnum;
+import cityproject.infrastructures.geographie.PointInterCardinalEnum;
 import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.PointM;
 
@@ -86,7 +86,7 @@ public class Parcelle {
 
 		Coordonnees4Points<PointM> coord_croisement = new Coordonnees4Points<PointM>();
 
-		CardinalityEnum cardinality = p.getCardinality(coord_croisement);
+		PointInterCardinalEnum cardinality = p.getCardinality(coord_croisement);
 
 		int x1, y1, x2, y2, x3, y3;
 
@@ -108,7 +108,7 @@ public class Parcelle {
 
 		// Premier cas: On part du point NO et on calcule les coordonnées de la
 		// parcelle
-		if (cardinality == CardinalityEnum.NORDOUEST) {
+		if (cardinality == PointInterCardinalEnum.NORDOUEST) {
 			do {
 				x1 -= 1;
 				pointParcoursAxeEO.setLocation(x1, y1);
@@ -130,7 +130,7 @@ public class Parcelle {
 
 		// Deuxième cas: On part du point NE et on calcule les coordonnées de la
 		// parcelle
-		if (cardinality == CardinalityEnum.NORDEST) {
+		if (cardinality == PointInterCardinalEnum.NORDEST) {
 			do {
 				x1 += 1;
 				pointParcoursAxeEO.setLocation(x1, y1);
@@ -152,7 +152,7 @@ public class Parcelle {
 
 		// Troisième cas: On part du point SO et on calcule les coordonnées de
 		// la parcelle
-		if (cardinality == CardinalityEnum.SUDOUEST) {
+		if (cardinality == PointInterCardinalEnum.SUDOUEST) {
 
 			do {
 				x1 -= 1;
@@ -176,7 +176,7 @@ public class Parcelle {
 
 		// Quatrième cas: On part du point SE et on calcule les coordonnées de
 		// la parcelle
-		if (cardinality == CardinalityEnum.SUDEST) {
+		if (cardinality == PointInterCardinalEnum.SUDEST) {
 			do {
 				x1 += 1;
 				pointParcoursAxeEO.setLocation(x1, y1);

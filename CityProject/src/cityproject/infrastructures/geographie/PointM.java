@@ -56,7 +56,7 @@ public class PointM extends Point {
 		return null;
 	}
 
-	public CardinalityEnum getCardinality(Coordonnees4Points<PointM> coord_croisement) {
+	public PointInterCardinalEnum getCardinality(Coordonnees4Points<PointM> coord_croisement) {
 		// TODO Auto-generated method stub
 		return null;
 	}
