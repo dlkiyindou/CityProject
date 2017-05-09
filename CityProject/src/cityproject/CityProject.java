@@ -3,12 +3,19 @@
  */
 package cityproject;
 
+
+
+import java.util.ArrayList;
+import java.util.List;
+
 import cityproject.exception.CityProjectException;
 import cityproject.graphique.CityProjectFenetre;
 import cityproject.graphique.CityProjectPanel;
 import cityproject.infrastructures.Quartier;
+import cityproject.infrastructures.Rue;
 import cityproject.infrastructures.Ville;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
+import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
 
 
@@ -24,10 +31,29 @@ public class CityProject {
 	public static void main(String[] args) throws Exception {
 		// Creation de la ville
 		Ville ville = creerVille();	
+		
+		// Constitution liste de quartiers
+		
+		List<Quartier> quartiers = new ArrayList<Quartier>();
+		
 		Quartier quartier = creerQuartier(ville);
 		
+		quartiers.add(quartier);
+		
+		// Constitution liste de rues
+		
+		List<Rue> rues = new ArrayList<Rue>();
+		
+		Rue rue1 = creerRue1();
+		Rue rue2 = creerRue2();
+		
+		rues.add(rue1);
+		rues.add(rue2);
+		
+		
+		
 		CityProjectFenetre fenetre = new CityProjectFenetre();
-		CityProjectPanel villeGraphe = new CityProjectPanel(ville, quartier);
+		CityProjectPanel villeGraphe = new CityProjectPanel(ville, quartiers, rues);
 		
 		villeGraphe.paintComponents(fenetre.getGraphics());
 		fenetre.setContentPane(villeGraphe);
@@ -80,6 +106,18 @@ public class CityProject {
 		quartier.setVille(ville);
 		
 		return quartier;
+	}
+	
+	private static Rue creerRue1() throws CityProjectException {
+		PointKm p1 = new PointKm(25,10);
+		Rue rue1 = new Rue("Rue 1", p1, 50, DirectionEnum.HORIZONTAL);
+		return rue1;
+	}
+	
+	private static Rue creerRue2() throws CityProjectException {
+		PointKm p2= new PointKm(26,10);
+		Rue rue2 = new Rue("Rue 2", p2 , 50, DirectionEnum.VERTICAL);
+		return rue2;
 	}
 
 }
