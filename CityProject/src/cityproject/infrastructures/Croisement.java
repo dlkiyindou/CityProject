@@ -1,12 +1,15 @@
 package cityproject.infrastructures;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.PointKm;
 import cityproject.infrastructures.geographie.PointM;
+
 
 import java.awt.*;
 import javax.swing.*;
@@ -65,7 +68,6 @@ public class Croisement extends Infrastructure {
 //	    System.out.println(r1);
 //	    System.out.println(r2);
 //	    System.out.println(r3);
-//
 //	}
 	
 
@@ -79,16 +81,16 @@ public static void main(String[] args){
 		
 // Pseudo-code (James R)
 	
-//	ça que je voudrais faire:
+// ça que je voudrais faire:
 //	
-//  1) liste des points d'Origine de chaque rue (pointOrigine: 
+// 1) liste des points d'Origine de chaque rue (pointOrigine: 
 //	        PointKm cityproject.infrastructures.Rue.pointOrigine))	
 //          orig_x_1, orig_y_1, orig_x_2, orig_y_2
 //
 double orig_x_1 = 2; double orig_y_1 = 2;
 double orig_x_2 = 4; double orig_y_2 = 4;
 //
-//  2) liste du direction de chaque rue (direction - 
+// 2) liste du direction de chaque rue (direction - 
 //	        cityproject.infrastructures.Rue.setDirection(DirectionEnum))	
 //          m_1, n_1, m_2, n_2
 //
@@ -103,20 +105,19 @@ double n_1 = 1;
 double m_2 = 1;
 double n_2 = 0;
 //
-//  3) liste du longueur de chaque rue (int longueur - 
+// 3) liste du longueur de chaque rue (int longueur - 
 //       	cityproject.infrastructures.Rue.setLongueur(int))
 //
 double longeur_1 = 10;
 double longeur_2 = 20;
 //
-//  4) liste du largeur de chaque rue (largeur - 
+// 4) liste du largeur de chaque rue (largeur - 
 //	        cityproject.infrastructures.Rue.largeur))	
 //
-double largeur_1 = 1.0;
-double largeur_2 = 1.0;
+double largeur_1 = 1;
+double largeur_2 = 1;
 
 // Rue rue = new Rue("Rue de James");
-
 
 
 // int largeur_rue1 = rue.getLargeur(); 
@@ -171,8 +172,6 @@ System.out.println("delta: " +delta+ ",   ");
 //
 double x_cross=((B_2*C_1) - (B_1*C_2))/delta;	
 double y_cross=((A_1*C_2) - (A_2*C_1))/delta;
-//
-//
 //
 //
 //  10) vérifier si ç'est bien un intercept, quand on prend
@@ -249,11 +248,11 @@ System.out.println("y4: "+y4+ "; ");
 // double orig_x_1 = 2; double orig_y_1 = 2;
 // double orig_x_2 = 4; double orig_y_2 = 4;
 
-//IF direction = HORIZONTAL positive, m=0; n=1
-//IF direction = HORIZONTAL negative, m=0; n=-1
+// IF direction = HORIZONTAL positive, m=0; n=1
+// IF direction = HORIZONTAL negative, m=0; n=-1
 //
-//IF direction = VERTICAL positive, m=1; n=0
-//IF direction = VERTICAL negative, m=-1; n=0
+// IF direction = VERTICAL positive, m=1; n=0
+// IF direction = VERTICAL negative, m=-1; n=0
 //
 // double m_1 = 0;
 // double n_1 = 1;
@@ -295,14 +294,17 @@ largeur_2 = largeur_2_temp;
 longeur_1 = longeur_1_temp;
 longeur_2 = longeur_2_temp;
 
+// Rectangle2D r1 = new Rectangle2D.Double(orig_x_1, orig_y_1, largeur_1, longeur_1);
+// Rectangle2D r2 = new Rectangle2D.Double(orig_x_2, orig_y_2, largeur_2, longeur_2);
 
-Rectangle2D r1 = new Rectangle2D.Double(orig_x_1, orig_y_1, largeur_1, longeur_1);
-Rectangle2D r2 = new Rectangle2D.Double(orig_x_2, orig_y_2, largeur_2, longeur_2);
-// Rectangle2D r3 = r1.intersection(r2);
+Rectangle r1 = new Rectangle(1, 2, 3, 4);
+Rectangle r2 = new Rectangle(5, 6, 7, 8);
 
-// System.out.println(r1);
-// System.out.println(r2);
-// System.out.println(r3);		
+Rectangle r3 = r1.intersection(r2);
+
+System.out.println(r1);
+System.out.println(r2);
+System.out.println(r3);		
 	
 //Data data = new data();		
 	
@@ -315,7 +317,6 @@ Rectangle2D r2 = new Rectangle2D.Double(orig_x_2, orig_y_2, largeur_2, longeur_2
 
 //	attempte de calculer l'intersection des polygones    
 //  --------------------------------------------------    
-
 
 Polygon polygon1 = new Polygon();		
 	
@@ -335,13 +336,13 @@ polygon2.addPoint(4, 4);
 polygon2.intersects(4,5,6,7);
 
 if (polygon2.intersects(4,5,6,7)) {
+	
 //if (polygon2.intersects(polygon1)) {
+	
 System.out.println("intersect");
 } else {
 System.out.println("not intersect");
 }	
-
-
 
 
 
