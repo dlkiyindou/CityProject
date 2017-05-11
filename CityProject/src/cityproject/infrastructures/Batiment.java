@@ -104,3 +104,4 @@ public class Batiment extends Infrastructure implements Proprietaire{
 		
 	}
 }
+//just to commit
