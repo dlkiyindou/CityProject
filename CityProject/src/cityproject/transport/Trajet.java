@@ -18,8 +18,8 @@ public class Trajet {
 	}
 	
 	//Constructeur
-	public Trajet(PointM po, PointM pf) throws CityProjectException {
-		calculTrajet(po,pf);
+	public Trajet(PointM pointOrigin, PointM pointFinal) throws CityProjectException {
+		calculTrajet(pointOrigin,pointFinal);
 	}
 	
 	//Getter
@@ -35,10 +35,10 @@ public class Trajet {
 	}
 	
 	//Methode de calcul de trajet
-	public void calculTrajet (PointM po, PointM pf) throws CityProjectException {
+	public void calculTrajet (PointM pointOrigin, PointM pointFinal) throws CityProjectException {
 	
 		//premier point du trajet
-		coordTrajet.ajouterElement(po);
+		coordTrajet.ajouterElement(pointOrigin);
 		
 		//po est dans une rue 
 		Rue rueO = new Rue ();
@@ -46,17 +46,17 @@ public class Trajet {
 		
 		
 		//Ordonnées et abscises des points origine et final du trajet
-		int xo=(int)po.getX();
-		int yo=(int)po.getY();
+		int xo=(int)pointOrigin.getX();
+		int yo=(int)pointOrigin.getY();
 		
-		int xf=(int)pf.getX();
-		int yf=(int)pf.getY();
+		int xf=(int)pointFinal.getX();
+		int yf=(int)pointFinal.getY();
 		
 		//coordonnees temporaux
 		int xt, yt;
 		PointM pt= new PointM(0,0);
 		
-		while((po != pf) && (pt != pf)){
+		while((pointOrigin != pointFinal) && (pt != pointFinal)){
 			
 		
 			//Si po est dans une rue vertical
@@ -133,7 +133,7 @@ public class Trajet {
 			}
 			
 			//point final du trajet
-			coordTrajet.ajouterElement(pf);
+			coordTrajet.ajouterElement(pointFinal);
 			
 			
 		}
