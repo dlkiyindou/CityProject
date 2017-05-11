@@ -70,7 +70,7 @@ public class Trajet {
 					do{ 
 						yt--;
 						pt.setLocation(xo, yt);
-					}while (pt.isPointCroisement() != null);
+					}while ((pt.isPointCroisement() != null) && (yt != yf));
 				
 					//Ajouter le point du croisement au trajet
 					coordTrajet.ajouterElement(pt);
@@ -83,7 +83,7 @@ public class Trajet {
 					do{ 
 						yt++;
 						pt.setLocation(xo, yt);
-					}while (pt.isPointCroisement() != null);
+					}while ((pt.isPointCroisement() != null) && (yt != yf));
 				
 					//Ajouter le point du croisement au trajet
 					coordTrajet.ajouterElement(pt);
@@ -109,7 +109,7 @@ public class Trajet {
 					do{ 
 						xt--;
 						pt.setLocation(xt, yo);
-					}while (pt.isPointCroisement() != null);
+					}while ((pt.isPointCroisement() != null) && (xt != xf));
 					
 					//Ajouter le point du croisement au trajet
 					coordTrajet.ajouterElement(pt);
@@ -123,7 +123,7 @@ public class Trajet {
 					do{ 
 						xt++;
 						pt.setLocation(xt, yo);
-					}while (pt.isPointCroisement() != null);
+					}while ((pt.isPointCroisement() != null) && (xt != xf));
 					
 					//Ajouter le point du croisement au trajet
 					coordTrajet.ajouterElement(pt);
