@@ -80,14 +80,16 @@ public class Batiment extends Infrastructure implements Proprietaire{
 		this.listeProprietaires = listeProprietaires;
 	}
 
-
+	// methode pour entrer dans batiment
 	public void entrerDansBatiment(){
+		// si pt = coord rue et pf = coord bat, alors j'entre dans un batiment
+		
 		
 	}
 	
-	
+	//methode pour sortir d'un batiment
 	public void sortirDeBatiment(){
-		
+		// si po = coord batiment et pt = coord rue, alors je sors du batiment
 	}
 	
 	
