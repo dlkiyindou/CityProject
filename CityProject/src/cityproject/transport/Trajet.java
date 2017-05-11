@@ -1,4 +1,4 @@
-package transport;
+package cityproject.transport;
 
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.PointM;
