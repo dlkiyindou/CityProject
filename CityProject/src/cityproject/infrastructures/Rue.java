@@ -20,6 +20,7 @@ public class Rue extends Infrastructure {
 	private PointKm pointSudOuest;
 	private PointKm pointSudEst;
 	private Quartier quartier;
+	Coordonnees4Points<PointKm> coordrue;
 	
 	public Rue() throws CityProjectException {
 		super();

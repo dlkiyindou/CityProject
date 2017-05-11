@@ -14,6 +14,7 @@ import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.PointKm;
 
 public class Quartier extends Infrastructure{
+	private String nom_quartier;
 	private CoordonneesGeographiques<PointKm> coordonnees = null;
 	double distanceHoryzontaleQuartier = 0;
 	double distanceVerticaleQuartier = 0;
@@ -144,6 +145,22 @@ public class Quartier extends Infrastructure{
 	}
 	public double getdistanceVerticaleQuartier() {
 		return distanceVerticaleQuartier;
+	}
+
+	public List<Rue> getListerues() {
+		return listerues;
+	}
+
+	public void setListerues(List<Rue> listerues) {
+		this.listerues = listerues;
+	}
+
+	public List<Croisement> getListcroisements() {
+		return listcroisements;
+	}
+
+	public void setListcroisements(List<Croisement> listcroisements) {
+		this.listcroisements = listcroisements;
 	}
 	
 	
