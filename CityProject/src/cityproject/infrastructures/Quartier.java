@@ -1,7 +1,10 @@
 package cityproject.infrastructures;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import cityproject.infrastructures.Rue;
 import cityproject.infrastructures.Croisement;
 
@@ -14,6 +17,30 @@ public class Quartier extends Infrastructure{
 	private CoordonneesGeographiques<PointKm> coordonnees = null;
 	double distanceHoryzontaleQuartier = 0;
 	double distanceVerticaleQuartier = 0;
+	
+	
+	private List<Parcelle> listeparcelles;
+	private List<Rue> listerues;
+	private List<Croisement> listcroisements;
+	
+	
+	
+	public List<Parcelle> getListeDeParcelles() {
+		return listeparcelles;
+	}
+
+	public void updateListDeParcelles() {
+		
+		//Suppression des doublons
+		List<Parcelle> parcelles = new ArrayList<Parcelle>();
+		parcelles = this.getListeDeParcelles();
+        Set<Parcelle> set = new HashSet<Parcelle>() ;
+        set.addAll(parcelles) ;
+        ArrayList<Parcelle> updateparcelles = new ArrayList<Parcelle>(set) ;
+        parcelles.addAll(updateparcelles);
+	}
+	
+	
 	
 	public CoordonneesGeographiques<PointKm> getCoordonnees() {
 		return coordonnees;
@@ -45,6 +72,10 @@ public class Quartier extends Infrastructure{
 
 	public Ville getVille() {
 		return ville;
+	}
+	
+	public String getNomQuartier() {
+		return nom_quartier;
 	}
 
 	public void setVille(Ville ville) throws QuartierHorsDeVilleException {
