@@ -26,4 +26,8 @@ public class Ville extends Infrastructure {
 	public void setCoordonnees(CoordonneesGeographiques<PointKm> coordonnees) {
 		this.coordonnees = coordonnees;
 	}
+
+	public int getId() {
+		return 0;
+	}
 }
