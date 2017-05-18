@@ -70,6 +70,7 @@ public class Lot { //Definition sous forme d'un rectangle comme Parcelle, Rue et
 	double x4 = 2.0; //sudest x
 	double y4 = 7.0; //sudest y	
 		
+	
 	double parcelle_taille = Math.abs(x1 - x4) * Math.abs(y1 - y4);
 
 	int nom_batiments_horiz = 10;
