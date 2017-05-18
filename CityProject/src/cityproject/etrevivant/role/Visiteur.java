@@ -6,3 +6,4 @@ public interface Visiteur {
 	Quartier getQuartierCourant();
 	Quartier getQuartierOrigine();
 }
+
