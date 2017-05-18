@@ -38,9 +38,9 @@ public class SQLiteDatabaseManager {
         return DriverManager.getConnection(url);
     }
     
-    public static void main(String[] args) throws SQLException {
-    	VilleRepository.getInstance().createTable();
-    }
+//    public static void main(String[] args) throws SQLException {
+//    	VilleRepository.getInstance().createTable();
+//    }
 
 
 	public static String getSQLiteDBPath() {

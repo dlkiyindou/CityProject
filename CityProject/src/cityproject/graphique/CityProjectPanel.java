@@ -81,8 +81,8 @@ public class CityProjectPanel extends JPanel {
 	    	g.drawPolygon(q.getCoordonnees().getPolygon());
 	    }
 	    
-//	    for (Rue r : listRues) {
-//	    	g.drawPolygon(r.getCoordonnees().getPolygon());
-//	    }
+	    for (Rue r : listRues) {
+	    	g.drawPolygon(r.getCoordonnees().getPolygon());
+	    }
 	}
 }

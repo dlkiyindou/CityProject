@@ -19,7 +19,7 @@ public class Rue extends Infrastructure {
 	private PointKm pointNordEst;
 	private PointKm pointSudOuest;
 	private PointKm pointSudEst;
-	Coordonnees4Points<PointKm> coordrue;
+	private Coordonnees4Points<PointKm> coordrue;
 	
 	public Rue() throws CityProjectException {
 		super();
@@ -81,6 +81,10 @@ public class Rue extends Infrastructure {
 	
 	public int getLargeur() {
 		return largeur;
+	}
+	
+	public void setCoordrue(Coordonnees4Points<PointKm> coordrue) {
+		this.coordrue = coordrue;
 	}
 
 	private void calculCoordonnees() {
@@ -166,7 +170,9 @@ public class Rue extends Infrastructure {
 				pointSudEst.setLocation (xse,yse);
 			}
 			
-			coordrue.ajouterElements(pointNordOuest, pointNordEst, pointSudOuest, pointSudEst);
+			Coordonnees4Points<PointKm> coord = new Coordonnees4Points<PointKm>();
+			coord.ajouterElements(pointNordOuest, pointNordEst, pointSudOuest, pointSudEst);
+			this.setCoordrue(coord);
 		}
 	}
 	
@@ -177,5 +183,7 @@ public class Rue extends Infrastructure {
 		
 		return coordrue;
 	}
+	
+
 		
 }
