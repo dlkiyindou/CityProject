@@ -3,6 +3,10 @@ package cityproject.infrastructures;
 // import cityproject.infrastructures.geographie.Adresse;
 import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.PointM;
+import cityproject.exception.CityProjectException;
+import cityproject.infrastructures.geographie.DirectionEnum;
+import cityproject.infrastructures.geographie.PointKm;
+
 
 // import java.awt.Point;
 // import java.awt.Polygon;
@@ -91,20 +95,33 @@ public class Lot { //Definition sous forme d'un rectangle comme Parcelle, Rue et
 	// System.out.print("x4: "+x4+ ", ");
 	// System.out.println("y4: "+y4+ "; ");
 	
-	int jcount = 0;
-	
-    for(int i=1; i<nom_batiments_horiz+1; i++){
-        for(int j=1; j<nom_batiments_vert+1; j++){
-        jcount = jcount + 1;
+	int nom_parcelles=5;
+	int kcount=0;
 
-        System.out.print("lot: "+ jcount);
-        System.out.print("; (coin nordouest) lot x_coord: "+ (x1 + lot_largeur_horiz*(i-1)));
-        System.out.print("; y_coord: "+ (y1 + lot_largeur_vert*(j-1)));
+    for(int k=1; k<nom_parcelles+1; k++){
+    	int jcount=0;
+		System.out.println(" ");    	
+		System.out.println("parcelle no.: "+ k);
+		System.out.println("-----------------");
+		System.out.println(" ");
 
-        System.out.println(" ");
+    	for(int i=1; i<nom_batiments_horiz+1; i++){
+    		for(int j=1; j<nom_batiments_vert+1; j++){
+    			jcount = jcount + 1;
+    			kcount = kcount + 1;
+
+    			System.out.print("no. lot en parcelle: "+ jcount);
+    			System.out.println("; no. lot unique: "+ kcount);
+
+    			
+    			System.out.print("(coin nordouest) lot x_coord: "+ (x1 + lot_largeur_horiz*(i-1)));
+    			System.out.print("; y_coord: "+ (y1 + lot_largeur_vert*(j-1)));
+
+    			System.out.println(" ");
         
         }
     }			
-	}			
+	}
+	}
 }
 
