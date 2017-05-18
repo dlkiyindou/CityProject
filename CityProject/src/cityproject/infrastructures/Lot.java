@@ -92,6 +92,7 @@ public class Lot { //Definition sous forme d'un rectangle comme Parcelle, Rue et
 	System.out.println(" nombreux_des_lots par parcelle: "+(nom_batiments_horiz * nom_batiments_vert)+ ", ");
 
 	
+	
 	// System.out.print("x4: "+x4+ ", ");
 	// System.out.println("y4: "+y4+ "; ");
 	
