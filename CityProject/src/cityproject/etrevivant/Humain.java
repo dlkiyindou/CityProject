@@ -8,54 +8,15 @@ import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.BienImmobilier;
 
 public class Humain extends EtreVivant implements Locataire, Proprietaire {
-	private String nom;
-	private Date dateNaissance;
+	
 	private Boolean aunBienImmobilier;
 	private Boolean aunFoyer;
-	private Foyer localisation;
+	
 	
 	public Humain() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Humain(String _nom) {
-		setNom(_nom);
-	}
-
-	@Override
-	public Quartier getQuartier() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Quartier getQuartierCourant() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Quartier getQuartierOrigine() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public Date getDateNaissance() {
-		return dateNaissance;
-	}
-
-	public void setDateNaissance(Date dateNaissance) {
-		this.dateNaissance = dateNaissance;
-	}
-
 	public Boolean getAunBienImmobilier() {
 		return aunBienImmobilier;
 	}
@@ -70,6 +31,24 @@ public class Humain extends EtreVivant implements Locataire, Proprietaire {
 
 	public void setAunFoyer(Boolean aunFoyer) {
 		this.aunFoyer = aunFoyer;
+	}
+
+	@Override
+	public void PossederLogement() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void PossederBiens() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void OccuperLogement() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

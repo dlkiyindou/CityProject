@@ -2,9 +2,9 @@ package cityproject.etrevivant;
 
 import cityproject.infrastructures.Quartier;
 
-public abstract class Animal extends EtreVivant {
+public class Animal extends EtreVivant {
 		private String nom;
-		private Boolean aunfoyer;
+		private boolean aunfoyer;
 		
 		public Animal() {
 			// TODO Auto-generated constructor stub
