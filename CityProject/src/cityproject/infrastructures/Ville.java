@@ -32,4 +32,7 @@ public class Ville extends Infrastructure {
 		this.coordonnees = coordonnees;
 	}
 
+	public int getId() {
+		return 0;
+	}
 }

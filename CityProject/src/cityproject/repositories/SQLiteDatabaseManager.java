@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import cityproject.infrastructures.Ville;
+
 public class SQLiteDatabaseManager {	
 	
 	/**
@@ -35,11 +37,17 @@ public class SQLiteDatabaseManager {
     public Connection getConnection () throws SQLException {
     	String url = "jdbc:sqlite:" + getSQLiteDBPath();
         // create a connection to the database
+    	
         return DriverManager.getConnection(url);
     }
     
     public static void main(String[] args) throws SQLException {
+    	//connect();
+    	System.out.println(getSQLiteDBPath());
     	VilleRepository.getInstance().createTable();
+    	
+    	Ville ville =  new Ville("Ma belle ville");
+    	VilleRepository.getInstance().saveVille(ville);
     }
 
 
