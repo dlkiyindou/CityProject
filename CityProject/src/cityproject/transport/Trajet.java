@@ -11,10 +11,10 @@ import cityproject.infrastructures.geographie.DirectionEnum;
 public class Trajet {
 	
 	private CoordonneesGeographiques <PointM> coordTrajet = new CoordonneesGeographiques<PointM>();
-	PointM point_reference_origine1 = new PointM();
-	PointM point_reference_origine2 = new PointM();
-	PointM point_reference_fin1 = new PointM();
-	PointM point_reference_fin2 = new PointM();
+	PointM pointReferenceOrigine1 = new PointM();
+	PointM pointReferenceOrigine2 = new PointM();
+	PointM pointReferenceFin1 = new PointM();
+	PointM pointReferenceFin2 = new PointM();
 	
 	//Constructeur par défaut 
 	public Trajet() throws CityProjectException {
@@ -38,87 +38,87 @@ public class Trajet {
 	}
 	
 	//Méthode de calcul du trajet
-	public void calculTrajet (PointM point_debut, PointM point_fin) throws CityProjectException {
+	public void calculTrajet (PointM pointDebut, PointM pointFin) throws CityProjectException {
 	
 		
 		//ajouter le premier point du trajet, po, à coordTrajet
-		coordTrajet.ajouterElement(point_debut);
+		coordTrajet.ajouterElement(pointDebut);
 		
 		//Les points origine et final sont dans une rue: il faudra obtenir la rue à partir de chaque point (créer méthode) 
-		Rue rue_origine = new Rue (); //à changer en utilisant la méthode à créer
-		Rue rue_final = new Rue (); //à changer en utilisant la méthode à créer 
-		DirectionEnum direction_origine= rue_origine.getDirection();
-		DirectionEnum direction_final = rue_final.getDirection();
+		Rue rueOrigine = new Rue (); //à changer en utilisant la méthode à créer
+		Rue rueFinal = new Rue (); //à changer en utilisant la méthode à créer 
+		DirectionEnum directionOrigine= rueOrigine.getDirection();
+		DirectionEnum directioFinal = rueFinal.getDirection();
 		
 		
 		//Ordonnées et abscisses des points origine et final du trajet
-		int x_debut=(int)point_debut.getX();
-		int y_debut=(int)point_debut.getY();
+		int xDebut=(int)pointDebut.getX();
+		int yDebut=(int)pointDebut.getY();
 		
-		int x_fin=(int)point_fin.getX();
-		int y_fin=(int)point_fin.getY();
+		int xFin=(int)pointFin.getX();
+		int yFin=(int)pointFin.getY();
 		
 		//coordonnees temporaux
-		int x_temporal, y_temporal;
-		PointM point_parcours= new PointM(0,0);
+		int xTemporal, yTemporal;
+		PointM pointParcours= new PointM(0,0);
 		
 		
 	
 		
 		//Détermination de points de référence pour le point origine
 		
-		if (direction_origine == DirectionEnum.HORIZONTAL) {
+		if (directionOrigine == DirectionEnum.HORIZONTAL) {
 			
 			//Point référence origine 1: balayer sur x jusqu'au croisement plus proche à gauche
 			
-			x_temporal=x_debut;
+			xTemporal=xDebut;
 		
 			do{ 
-				x_temporal--;
-				point_parcours.setLocation(x_temporal, y_debut);
-			}while (point_parcours.isPointCentreCroisement() != null);
+				xTemporal--;
+				pointParcours.setLocation(xTemporal, yDebut);
+			}while (pointParcours.isPointCentreCroisement() != null);
 			
-			point_reference_origine1 = point_parcours;
+			pointReferenceOrigine1 = pointParcours;
 						
 			//Point référence origine 2: balayer sur x jusqu'au croisement plus proche à droite
 			
-			x_temporal=x_debut;
+			xTemporal=xDebut;
 		
 			do{ 
-				x_temporal++;
-				point_parcours.setLocation(x_temporal, y_debut);
-			}while (point_parcours.isPointCentreCroisement() != null) ;
+				xTemporal++;
+				pointParcours.setLocation(xTemporal, yDebut);
+			}while (pointParcours.isPointCentreCroisement() != null) ;
 			
-			point_reference_origine2 = point_parcours;
+			pointReferenceOrigine2 = pointParcours;
 			
 			
 		}
 		
 		
-		if (direction_origine == DirectionEnum.VERTICAL) {
+		if (directionOrigine == DirectionEnum.VERTICAL) {
 			
 			//Point référence origine 1: Balayer sur y jusqu'au croisement plus proche au-dessus
 			
-			y_temporal=y_debut;
+			yTemporal=yDebut;
 		
 			do{ 
-				y_temporal--;
-				point_parcours.setLocation(x_debut, y_temporal);
-			}while (point_parcours.isPointCentreCroisement() != null);
+				yTemporal--;
+				pointParcours.setLocation(xDebut, yTemporal);
+			}while (pointParcours.isPointCentreCroisement() != null);
 			
-			point_reference_origine1 = point_parcours;
+			pointReferenceOrigine1 = pointParcours;
 			
 			
 			//Point référence origine 2: balayer sur y jusqu'au croisement plus proche en dessous
 			
-			y_temporal=y_debut;
+			yTemporal=yDebut;
 		
 			do{ 
-				y_temporal++;
-				point_parcours.setLocation(x_debut, y_temporal);
-			}while (point_parcours.isPointCentreCroisement() != null);
+				yTemporal++;
+				pointParcours.setLocation(xDebut, yTemporal);
+			}while (pointParcours.isPointCentreCroisement() != null);
 			
-			point_reference_origine2 = point_parcours;
+			pointReferenceOrigine2 = pointParcours;
 			
 			
 		}
@@ -126,58 +126,58 @@ public class Trajet {
 		
 		//Détermination de points de référence pour le point final
 		
-		if (direction_final == DirectionEnum.HORIZONTAL) {
+		if (directioFinal == DirectionEnum.HORIZONTAL) {
 			
 			//Point référence fin 1: balayer sur x jusqu'au croisement plus proche à gauche
 			
-			x_temporal=x_fin;
+			xTemporal=xFin;
 		
 			do{ 
-				x_temporal--;
-				point_parcours.setLocation(x_temporal, y_fin);
-			}while (point_parcours.isPointCentreCroisement() != null);
+				xTemporal--;
+				pointParcours.setLocation(xTemporal, yFin);
+			}while (pointParcours.isPointCentreCroisement() != null);
 			
-			point_reference_fin1 = point_parcours;
+			pointReferenceFin1 = pointParcours;
 						
 			//Point référence fin 2: balayer sur x jusqu'au croisement plus proche à droite
 			
-			x_temporal=x_fin;
+			xTemporal=xFin;
 		
 			do{ 
-				x_temporal++;
-				point_parcours.setLocation(x_temporal, y_fin);
-			}while (point_parcours.isPointCentreCroisement() != null);
+				xTemporal++;
+				pointParcours.setLocation(xTemporal, yFin);
+			}while (pointParcours.isPointCentreCroisement() != null);
 			
-			point_reference_fin2 = point_parcours;
+			pointReferenceFin2 = pointParcours;
 			
 			
 		}
 		
 		
-		if (direction_origine == DirectionEnum.VERTICAL) {
+		if (directionOrigine == DirectionEnum.VERTICAL) {
 			
 			//Point référence fin 1: Balayer sur y jusqu'au croisement plus proche au-dessus
 			
-			y_temporal=y_fin;
+			yTemporal=yFin;
 		
 			do{ 
-				y_temporal--;
-				point_parcours.setLocation(x_fin, y_temporal);
-			}while (point_parcours.isPointCentreCroisement() != null);
+				yTemporal--;
+				pointParcours.setLocation(xFin, yTemporal);
+			}while (pointParcours.isPointCentreCroisement() != null);
 			
-			point_reference_fin1 = point_parcours;
+			pointReferenceFin1 = pointParcours;
 			
 			
 			//Point référence origine 2: balayer sur y jusqu'au croisement plus proche en dessous
 			
-			y_temporal=y_fin;
+			yTemporal=yFin;
 		
 			do{ 
-				y_temporal++;
-				point_parcours.setLocation(x_fin, y_temporal);
-			}while (point_parcours.isPointCentreCroisement() != null);
+				yTemporal++;
+				pointParcours.setLocation(xFin, yTemporal);
+			}while (pointParcours.isPointCentreCroisement() != null);
 			
-			point_reference_fin2 = point_parcours;
+			pointReferenceFin2 = pointParcours;
 			
 			
 		}
@@ -189,36 +189,36 @@ public class Trajet {
 		
 	//Ordonnées et abscisses des points de référence
 		
-		int x_reference_origine1 = (int)point_reference_origine1.getX();
-		int y_reference_origine1 = (int)point_reference_origine1.getY();
+		int xReferenceOrigine1 = (int)pointReferenceOrigine1.getX();
+		int yReferenceOrigine1 = (int)pointReferenceOrigine1.getY();
 		
-		int x_reference_origine2 = (int)point_reference_origine2.getX();
-		int y_reference_origine2 = (int)point_reference_origine2.getY();
+		int xReferenceOrigine2 = (int)pointReferenceOrigine2.getX();
+		int yReferenceOrigine2 = (int)pointReferenceOrigine2.getY();
 		
-		int x_reference_fin1 = (int)point_reference_fin1.getX();
-		int y_reference_fin1 = (int)point_reference_fin1.getY();
+		int xReferenceFin1 = (int)pointReferenceFin1.getX();
+		int yReferenceFin1 = (int)pointReferenceFin1.getY();
 		
-		int x_reference_fin2 = (int)point_reference_fin2.getX();
-		int y_reference_fin2 = (int)point_reference_fin2.getY();
+		int xReferenceFin2 = (int)pointReferenceFin2.getX();
+		int yReferenceFin2 = (int)pointReferenceFin2.getY();
 		
 	//Points de mi-parcours:
 		
 		//entre origine1 et fin1
 		
-		PointM point_mi_parcours11 = new PointM();
-		point_mi_parcours11.setLocation(x_reference_origine1, y_reference_fin1);
+		PointM pointMiParcours11 = new PointM();
+		pointMiParcours11.setLocation(xReferenceOrigine1, yReferenceFin1);
 		
 		//entre origine1 et fin2
-		PointM point_mi_parcours12 = new PointM();
-		point_mi_parcours12.setLocation(x_reference_origine1, y_reference_fin2);
+		PointM pointMiParcours12 = new PointM();
+		pointMiParcours12.setLocation(xReferenceOrigine1, yReferenceFin2);
 		
 		//entre origine2 et fin1
-		PointM point_mi_parcours21 = new PointM();
-		point_mi_parcours21.setLocation(x_reference_origine2, y_reference_fin1);
+		PointM pointMiParcours21 = new PointM();
+		pointMiParcours21.setLocation(xReferenceOrigine2, yReferenceFin1);
 		
 		//entre origine2 et fin2
-		PointM point_mi_parcours22 = new PointM();
-		point_mi_parcours22.setLocation(x_reference_origine2, y_reference_fin2);
+		PointM pointMiParcours22 = new PointM();
+		pointMiParcours22.setLocation(xReferenceOrigine2, yReferenceFin2);
 		
 		
 		
@@ -226,27 +226,29 @@ public class Trajet {
 		
 		//distance entre origin1 et fin1
 		
-		int distance_origine1_fin1 = (int) (point_reference_origine1.distance(point_mi_parcours11) +point_mi_parcours11.distance(point_reference_fin1));
+		int distanceOrigine1Fin1 = (int) (pointReferenceOrigine1.distance(pointMiParcours11) +pointMiParcours11.distance(pointReferenceFin1));
 		
 		//distance entre origin1 et fin2
 		
-		int distance_origine1_fin2 = (int) (point_reference_origine1.distance(point_mi_parcours12) +point_mi_parcours12.distance(point_reference_fin2));
+		int distanceOrigine1Fin2 = (int) (pointReferenceOrigine1.distance(pointMiParcours12) +pointMiParcours12.distance(pointReferenceFin2));
 		
 		//distance entre origin2 et fin1
 		
-		int distance_origine2_fin1 = (int) (point_reference_origine2.distance(point_mi_parcours21) +point_mi_parcours21.distance(point_reference_fin2));
+		int distanceOrigine2Fin1 = (int) (pointReferenceOrigine2.distance(pointMiParcours21) +pointMiParcours21.distance(pointReferenceFin2));
 		
 		//distance entre origine2 et fin2
 		
-		int distance_origine2_fin2 = (int) (point_reference_origine2.distance(point_mi_parcours22) +point_mi_parcours22.distance(point_reference_fin2));
+		int distanceOrigine2Fin2 = (int) (pointReferenceOrigine2.distance(pointMiParcours22) +pointMiParcours22.distance(pointReferenceFin2));
 		
 		
 	//Calcul de distance minimale
 		
-		int distance_minimale1 = Math.min(distance_origine1_fin1, distance_origine1_fin2);
-		int distance_minimale2 = Math.min(distance_origine2_fin1, distance_origine2_fin2);
+		Math.min(Math.min(distanceOrigine1Fin1, distanceOrigine1Fin2), Math.min(distanceOrigine2Fin1, distanceOrigine2Fin2));
 		
-		int distance_minimale = Math.min(distance_minimale1, distance_minimale2);
+//		int distanceMinimale1 = Math.min(distanceOrigine1Fin1, distanceOrigine1Fin2);
+//		int distanceMinimale2 = Math.min(distanceOrigine2Fin1, distanceOrigine2Fin2);
+//		
+//		int distanceMinimale = Math.min(distanceMinimale1, distanceMinimale2);
 		
 		
 		
