@@ -1,107 +1,124 @@
 package cityproject.infrastructures;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
+import cityproject.etrevivant.EtreVivant;
 import cityproject.etrevivant.Humain;
 import cityproject.etrevivant.role.Proprietaire;
-import cityproject.infrastructures.geographie.Adresse;
-import cityproject.infrastructures.geographie.Coordonnees4Points;
+import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.PointM;
 
-public class Batiment extends Infrastructure implements Proprietaire{
-	private String type;
-	private PointM taille;
-	private Coordonnees4Points<PointM> coordonnees;
-	private Adresse adresse;
-	private int nbEtages;
-	private List<Proprietaire> listeProprietaires;
-	private int nbDePersonnesDansBatiment;
-	private List<Humain> nomsDesPersonnesDansBatiment;
+
+public class Batiment extends Infrastructure implements Propriete{
+	private TypeBatimentEnum type;
+	private Set<FonctionBatimentEnum> fonctions;
+	private CoordonneesGeographiques<PointM> coordonnees;
+	private Set<Lot> listeLot;
+	private Map<Integer,Subdivision> listeDesSubdivisions;
+	private Set<Proprietaire> listeProprietaires;
+	private Set<EtreVivant> etresvivantsDansBatiment;
 	
-	// constructeur par defaut
-	public Batiment(){
-		setType(null);
-		setTaille(null);
-		setCoordonnees(null);
+	
+	/**
+	 * constructeur avec parametre
+	 * @param type
+	 */
+	public Batiment (TypeBatimentEnum type, Collection<FonctionBatimentEnum> fonctions){
+		setType(type);	
+		setFonctions(fonctions);
 	}
 	
-	// constructeur avec parametres
-	public Batiment (String type, PointM taille, String fonction, Coordonnees4Points<PointM> coordonnees){
+	public Batiment (TypeBatimentEnum type, Collection<Lot> listeLot, Collection<Proprietaire> listeProprietaires){
 		setType(type);
-		setTaille(taille);
-		setCoordonnees(coordonnees);	
+		
 	}
-	
-	public String getType(){
+
+
+	@Override
+	public List<Proprietaire> listeProprietaires() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public TypeBatimentEnum getType() {
 		return type;
 	}
-	
-	public void setType(String type){
-		this.type=type;
+
+	public void setType(TypeBatimentEnum type) {
+		this.type = type;
 	}
 
-	public PointM getTaille() {
-		return taille;
+	public Set<Lot> getListeLot() {
+		return listeLot;
 	}
 
-	public void setTaille(PointM taille) {
-		this.taille = taille;
+	public void setListLot(Collection<Lot> listeLot) {
+		this.listeLot = new HashSet<>(listeLot);
 	}
 
-	public Coordonnees4Points<PointM> getCoordonnees() {
-		return coordonnees;
-	}
-
-	public void setCoordonnees(Coordonnees4Points<PointM> coordonnees) {
-		this.coordonnees = coordonnees;
-	}
-
-	public Adresse getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
-
-	public int getNbEtages() {
-		return nbEtages;
-	}
-
-	public void setNbEtages(int nbEtages) {
-		this.nbEtages = nbEtages;
-	}
-
-	public List<Proprietaire> getListeProprietaires() {
+	public Set<Proprietaire> getListeProprietaires() {
 		return listeProprietaires;
 	}
 
-	public void setListeProprietaires(List<Proprietaire> listeProprietaires) {
-		this.listeProprietaires = listeProprietaires;
+	public void setListeProprietaires(Collection<Proprietaire> listeProprietaires) {
+		this.listeProprietaires = new HashSet<>(listeProprietaires);
 	}
 
-	// methode pour entrer dans batiment
-	public void entrerDansBatiment(){
-		// si pt = coord rue et pf = coord bat, alors j'entre dans un batiment
-		
-		
+	public Set<EtreVivant> getPersonnesDansBatiment() {
+		return etresvivantsDansBatiment;
+	}
+
+	public void setPersonnesDansBatiment(Collection<Humain> personnesDansBatiment) {
+		this.etresvivantsDansBatiment = new HashSet<>(personnesDansBatiment);
+	}
+
+	public Map<Integer,Subdivision> getListeDesSubdivisions() {
+		return listeDesSubdivisions;
+	}
+
+	public void setListeDesSubdivisions(Map<Integer,Subdivision> listeDesSubdivisions) {
+		this.listeDesSubdivisions = listeDesSubdivisions;
+	}
+
+
+
+
+	public CoordonneesGeographiques<PointM> getCoordonnees() {
+		return coordonnees;
+	}
+
+
+
+
+	public void setCoordonnees(CoordonneesGeographiques<PointM> coordonnees) {
+		this.coordonnees = coordonnees;
+	}
+
+	public Set<FonctionBatimentEnum> getFonctions() {
+		return fonctions;
+	}
+
+	public void setFonctions(Collection<FonctionBatimentEnum> fonctions) {
+		this.fonctions = new HashSet<>(fonctions);
 	}
 	
-	//methode pour sortir d'un batiment
-	public void sortirDeBatiment(){
-		// si po = coord batiment et pt = coord rue, alors je sors du batiment
+	
+	public void entrer(EtreVivant etreVivant) {
+		if (!etresvivantsDansBatiment.contains(etreVivant))
+		etresvivantsDansBatiment.add(etreVivant);
 	}
 	
-	
-	public int nbDePersonnesDansBatiment(){
-		return nbDePersonnesDansBatiment;
-		
-	}
-	
-	
-	public List<Humain> nomsDesPersonnesDansBatiment(){
-		return nomsDesPersonnesDansBatiment;
-		
+	public void fairesortir(EtreVivant etreVivant) {
+		if (etresvivantsDansBatiment.contains(etreVivant))
+			etresvivantsDansBatiment.remove(etreVivant);
 	}
 }
 //just to commit

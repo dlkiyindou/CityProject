@@ -4,10 +4,12 @@
 package cityproject.etrevivant;
 
 import java.util.Date;
+import cityproject.infrastructures.geographie.Coordonnees4Points;
 
 import cityproject.etrevivant.role.Habitant;
 import cityproject.etrevivant.role.Visiteur;
 import cityproject.infrastructures.Quartier;
+import cityproject.infrastructures.geographie.PointM;
 
 /**
  * @author Dixi
@@ -16,7 +18,7 @@ import cityproject.infrastructures.Quartier;
 public class EtreVivant implements Habitant, Visiteur {
 	private String nom;
 	private Date dateNaissance;
-	private int coordonnees;
+	private Coordonnees4Points<PointM> coordonnees;
 	
 	
 	public EtreVivant() {
@@ -38,13 +40,6 @@ public class EtreVivant implements Habitant, Visiteur {
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
-	public int getCoordonnees() {
-		return coordonnees;
-	}
-	public void setCoordonnees(int coordonnees) {
-		this.coordonnees = coordonnees;
-	}
-
 
 
 
@@ -70,6 +65,20 @@ public class EtreVivant implements Habitant, Visiteur {
 	public Quartier getQuartier() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+
+	public Coordonnees4Points<PointM> getCoordonnees() {
+		return coordonnees;
+	}
+
+
+
+
+	public void setCoordonnees(Coordonnees4Points<PointM> coordonnees) {
+		this.coordonnees = coordonnees;
 	}
 	
 }
