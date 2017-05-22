@@ -1,21 +1,14 @@
 package cityproject.infrastructures;
 
 
+import java.awt.Polygon;
+import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 import cityproject.infrastructures.geographie.Coordonnees4Points;
-import cityproject.infrastructures.geographie.PointKm;
 import cityproject.infrastructures.geographie.PointM;
-import cityproject.infrastructures.geographie.PointM;
-
-
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
-import java.awt.geom.Rectangle2D;
 
 
 public class Croisement extends Infrastructure {
