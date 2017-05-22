@@ -10,6 +10,7 @@ import cityproject.infrastructures.geographie.PointKm;
 
 public class Ville extends Infrastructure {
 	private CoordonneesGeographiques<PointKm> coordonnees;
+	private List<Parcelle> listeparcelles;
 
 	public Ville() {
 		super();
@@ -32,7 +33,21 @@ public class Ville extends Infrastructure {
 		this.coordonnees = coordonnees;
 	}
 
-	public int getId() {
-		return 0;
+	public List<Parcelle> getListeDeParcelles() {
+		return listeparcelles;
 	}
+
+	public void updateListDeParcelles() {
+		
+		//Suppression des doublons
+		List<Parcelle> parcelles = new ArrayList<Parcelle>();
+		parcelles = this.getListeDeParcelles();
+        Set<Parcelle> set = new HashSet<Parcelle>() ;
+        set.addAll(parcelles) ;
+        ArrayList<Parcelle> updateparcelles = new ArrayList<Parcelle>(set) ;
+        parcelles.addAll(updateparcelles);
+
+
+	}
+
 }

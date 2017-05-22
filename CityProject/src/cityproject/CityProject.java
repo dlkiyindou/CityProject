@@ -12,12 +12,9 @@ import cityproject.exception.CityProjectException;
 import cityproject.graphique.CityProjectFenetre;
 import cityproject.graphique.CityProjectPanel;
 import cityproject.infrastructures.Quartier;
-import cityproject.infrastructures.Rue;
 import cityproject.infrastructures.Ville;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
-import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
-import cityproject.infrastructures.geographie.PointM;
 
 
 /**

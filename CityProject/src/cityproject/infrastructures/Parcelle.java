@@ -79,7 +79,7 @@ public class Parcelle {
 	}
 
 	/*
-	 * M�thode de calcul de la position d'une parcelle
+	 * M?thode de calcul de la position d'une parcelle
 	 */
 
 	public void calculPositionParcelle(PointM p, Croisement c) throws CityProjectException {
@@ -95,7 +95,7 @@ public class Parcelle {
 		// point de parcours sur axe N-S
 		PointM pointParcoursAxeNS = new PointM(0, 0);
 		// dernier point pour constituer la parcelle, les coordonnees sont
-		// calcul�es
+		// calcul?es
 		PointM pointCalcule = new PointM(0, 0);
 
 		// Initialisation de la position des points
@@ -106,7 +106,7 @@ public class Parcelle {
 		x2 = (int) p.getX();
 		y2 = (int) p.getY();
 
-		// Premier cas: On part du point NO et on calcule les coordonn�es de la
+		// Premier cas: On part du point NO et on calcule les coordonn?es de la
 		// parcelle
 		if (cardinality == PointInterCardinalEnum.NORDOUEST) {
 			do {
@@ -128,7 +128,7 @@ public class Parcelle {
 			pointSudEst = p;
 		}
 
-		// Deuxi�me cas: On part du point NE et on calcule les coordonn�es de la
+		// Deuxi?me cas: On part du point NE et on calcule les coordonn?es de la
 		// parcelle
 		if (cardinality == PointInterCardinalEnum.NORDEST) {
 			do {
@@ -150,7 +150,7 @@ public class Parcelle {
 			pointSudEst = p;
 		}
 
-		// Troisi�me cas: On part du point SO et on calcule les coordonn�es de
+		// Troisi?me cas: On part du point SO et on calcule les coordonn?es de
 		// la parcelle
 		if (cardinality == PointInterCardinalEnum.SUDOUEST) {
 
@@ -174,7 +174,7 @@ public class Parcelle {
 
 		}
 
-		// Quatri�me cas: On part du point SE et on calcule les coordonn�es de
+		// Quatri?me cas: On part du point SE et on calcule les coordonn?es de
 		// la parcelle
 		if (cardinality == PointInterCardinalEnum.SUDEST) {
 			do {

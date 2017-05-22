@@ -32,8 +32,7 @@ public class PointM extends Point {
 		}
 		
 		pointReference = p;
-		
-		setLocation((int)p.getX()+x, y);
+		setLocation(x, y);
 	}
 
 	public PointKm getPointReference() {

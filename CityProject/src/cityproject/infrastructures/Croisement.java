@@ -7,11 +7,14 @@ import java.util.List;
 
 
 import cityproject.infrastructures.geographie.Coordonnees4Points;
+import cityproject.infrastructures.geographie.PointKm;
 import cityproject.infrastructures.geographie.PointM;
 
 
 import java.awt.*;
-
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.geom.Rectangle2D;
 
 
 public class Croisement extends Infrastructure {
@@ -68,7 +71,7 @@ public class Croisement extends Infrastructure {
 //	}
 	
 
-// début de la routine principale	
+// dÃ©but de la routine principale	
 	
 public static void main(String[] args){
 	
@@ -78,7 +81,7 @@ public static void main(String[] args){
 		
 // Pseudo-code (James R)
 	
-// ça que je voudrais faire:
+// Ã§a que je voudrais faire:
 //	
 // 1) liste des points d'Origine de chaque rue (pointOrigine: 
 //	        PointKm cityproject.infrastructures.Rue.pointOrigine))	
@@ -124,12 +127,12 @@ System.out.print("largeur_1: " +largeur_1+ ",   ");
 System.out.println("largeur_2: " +largeur_2+ ",   ");
 
 //
-//  5) créer une équation pour chaque rue
+//  5) crÃ©er une Ã©quation pour chaque rue
 //     e.g. i)  n_1*(y - orig_y_1) = m_1(x - orig_x_1)
 //          ii) n_2*(y - orig_y_2) = m_2(x - orig_x_2)
 //
 //
-//  6) reorganiser chaque équation sous la forme:
+//  6) reorganiser chaque Ã©quation sous la forme:
 //     (avec les nouvelles variables A_1, B_1, C_1, A_2, B_2, C_2)	
 //     i)  A_1*x + B_1*y = C_1	
 //     ii) A_2*x + B_2*y = C_2
@@ -171,7 +174,7 @@ double x_cross=((B_2*C_1) - (B_1*C_2))/delta;
 double y_cross=((A_1*C_2) - (A_2*C_1))/delta;
 //
 //
-//  10) vérifier si ç'est bien un intercept, quand on prend
+//  10) vÃ©rifier si Ã§'est bien un intercept, quand on prend
 //        compte du longeur de la rue
 //      IF sqrt((x_cross - orig_x_1)^2 + (y_cross - orig_y_1)^2) >=	longeur_1
 //      OR sqrt((x_cross - orig_x_2)^2 + (y_cross - orig_y_2)^2) >=	longeur_2
@@ -189,14 +192,14 @@ if ((Math.pow((x_cross - orig_x_1),2) + Math.pow((y_cross - orig_y_1),2)) >= Mat
   else {
 	System.out.println("c'est bien un croisement");
 	System.out.println("    ");
-	System.out.println("Coordonnés de croisement");
+	System.out.println("CoordonnÃ©s de croisement");
 	System.out.println("------------------------");
 
 	System.out.print("x_cross: "+x_cross+",   ");
 	System.out.println("y_cross: "+y_cross+",   ");
 }
 //
-//  11) désigner les 'coins' de l'interception
+//  11) dÃ©signer les 'coins' de l'interception
 //        x1 = x_cross + (largueur_1 / 2)	
 //   	  x2 = x_cross - (largueur_1 / 2)
 //        x3 = x_cross + (largueur_2 / 2)	
