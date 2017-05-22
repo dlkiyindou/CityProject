@@ -5,7 +5,7 @@ import cityproject.etrevivant.role.Locataire;
 import cityproject.etrevivant.role.Proprietaire;
 import cityproject.infrastructures.Quartier;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
-import cityproject.infrastructures.BienImmobilier;
+
 
 public class Humain extends EtreVivant implements Locataire, Proprietaire {
 	

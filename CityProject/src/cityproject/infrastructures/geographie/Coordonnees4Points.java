@@ -11,11 +11,11 @@ import java.util.Map;
 import cityproject.exception.CityProjectException;
 
 public class Coordonnees4Points<E extends Point> extends CoordonneesGeographiques<E> {
-	private Map<PointCardinalEnum, E> mapDePoints;
+	private Map<PointInterCardinalEnum, E> mapDePoints;
 	
 	public Coordonnees4Points () {
 		super();
-		mapDePoints =  new HashMap<PointCardinalEnum, E>();
+		mapDePoints =  new HashMap<PointInterCardinalEnum, E>();
 	}
 	
 	public void ajouterElement(E e) throws CityProjectException {
@@ -23,7 +23,7 @@ public class Coordonnees4Points<E extends Point> extends CoordonneesGeographique
 			super.ajouterElement(e);
 			
 			for (E elt : super.getListeDePoints()) {
-				mapDePoints.put(getPointCardinal(elt), elt);
+				mapDePoints.put(getPointInterCardinal(elt), elt);
 			}
 		} else {
 			throw new CityProjectException("Coordonnees4Points ne peut contenir que 4 points");
@@ -41,9 +41,9 @@ public class Coordonnees4Points<E extends Point> extends CoordonneesGeographique
 	
 	public void setListeDePoints(List<E> _listeDePoints) {
 		super.setListeDePoints(_listeDePoints);
-		mapDePoints =  new HashMap<PointCardinalEnum, E>();
+		mapDePoints =  new HashMap<PointInterCardinalEnum, E>();
 		for (E elt : _listeDePoints) {
-			mapDePoints.put(getPointCardinal(elt), elt);
+			mapDePoints.put(getPointInterCardinal(elt), elt);
 		}
 	}
 	
@@ -53,15 +53,15 @@ public class Coordonnees4Points<E extends Point> extends CoordonneesGeographique
 	 */
 	public void supprimerElement(E e) {
 		super.supprimerElement(e);
-		mapDePoints =  new HashMap<PointCardinalEnum, E>();
+		mapDePoints =  new HashMap<PointInterCardinalEnum, E>();
 		for (E elt : super.getListeDePoints()) {
-			mapDePoints.put(getPointCardinal(elt), elt);
+			mapDePoints.put(getPointInterCardinal(elt), elt);
 		}
 	}
 	
-	public PointCardinalEnum getPointCardinal(E elt) {
+	public PointInterCardinalEnum getPointInterCardinal(E elt) {
 		double maxX = 0, maxY = 0, minX = 0, minY = 0;
-		PointCardinalEnum resultat = null;
+		PointInterCardinalEnum resultat = null;
 		
 		for (E e : getListeDePoints()) {
 			if (e.getX() > maxX)
@@ -74,13 +74,13 @@ public class Coordonnees4Points<E extends Point> extends CoordonneesGeographique
 		}
 		
 		if (elt.getX() == maxX && elt.getY() == maxY)
-			resultat = PointCardinalEnum.SUDEST;
+			resultat = PointInterCardinalEnum.SUDEST;
 		else if (elt.getX() == maxX && elt.getY() == minY)
-			resultat = PointCardinalEnum.NORDEST;
+			resultat = PointInterCardinalEnum.NORDEST;
 		else if (elt.getX() == minX && elt.getY() == minY)
-			resultat = PointCardinalEnum.NORDOUEST;
+			resultat = PointInterCardinalEnum.NORDOUEST;
 		else if (elt.getX() == minX && elt.getY() == maxY)
-			resultat = PointCardinalEnum.NORDOUEST;
+			resultat = PointInterCardinalEnum.SUDOUEST;
 		
 		return resultat;
 	}

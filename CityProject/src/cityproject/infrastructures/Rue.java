@@ -1,7 +1,8 @@
 package cityproject.infrastructures;
 
 import cityproject.exception.CityProjectException;
-import cityproject.infrastructures.Quartier;
+import cityproject.infrastructures.geographie.Coordonnees4Points;
+import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
 
@@ -19,6 +20,7 @@ public class Rue extends Infrastructure {
 	private PointKm pointSudOuest;
 	private PointKm pointSudEst;
 	private Quartier quartier;
+	Coordonnees4Points<PointKm> coordrue;
 	
 	public Rue() throws CityProjectException {
 		super();
@@ -30,7 +32,7 @@ public class Rue extends Infrastructure {
 		calculCoordonnees ();
 	}
 	
-	public Rue (String nom) throws Exception{
+	public Rue (String nom){
 		super();
 		//completer (créer des paramètres par défault)
 		setNom(nom);
@@ -40,7 +42,7 @@ public class Rue extends Infrastructure {
 		calculCoordonnees ();
 	}
 	
-	public Rue (String nom, PointKm origine, int longueur, DirectionEnum direction) throws Exception {
+	public Rue (String nom, PointKm origine, int longueur, DirectionEnum direction) {
 		super();
 		//completer (créer des paramètres par défault)
 		setNom(nom);
@@ -87,7 +89,7 @@ public class Rue extends Infrastructure {
 		return largeur;
 	}
 
-	private void calculCoordonnees () {
+	private void calculCoordonnees() {
 		if ((pointOrigine != null) &(longueur > 0)) {
 			if (DirectionEnum.VERTICAL == direction) {
 				
@@ -124,7 +126,7 @@ public class Rue extends Infrastructure {
 		}
 	}
 	
-	private void calculCordonnees4Points () {
+	private void calculCordonnees4Points() {
 		// on calcule les extremitées nord-ouest, nord-est, sud-ouest et sud-est de chaque rue
 		if ((pointDebut != null)&(pointFin != null)) {
 			if (DirectionEnum.VERTICAL == direction) {
@@ -169,7 +171,17 @@ public class Rue extends Infrastructure {
 				pointSudEst = new PointKm ();
 				pointSudEst.setLocation (xse,yse);
 			}
+			
+			coordrue.ajouterElements(pointNordOuest, pointNordEst, pointSudOuest, pointSudEst);
 		}
+	}
+	
+	public CoordonneesGeographiques<PointKm> getCoordonnees() {
+		
+		calculCoordonnees();
+		calculCordonnees4Points();
+		
+		return coordrue;
 	}
 		
 }

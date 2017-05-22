@@ -1,6 +1,6 @@
 package cityproject.infrastructures.geographie;
 
-public enum CardinalityEnum {
+public enum PointInterCardinalEnum {
 	
 	NORDOUEST, NORDEST, SUDOUEST, SUDEST;
 
