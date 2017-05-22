@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Set;
 
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
-import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
 
 public class Ville extends Infrastructure {
-	private CoordonneesGeographiques<PointKm> coordonnees;
+	private CoordonneesGeographiques<PointM> coordonnees;
 	private List<Parcelle> listeparcelles;
 
 	public Ville() {
@@ -20,16 +20,16 @@ public class Ville extends Infrastructure {
 		super(nom);
 	}
 
-	public Ville(String nom, CoordonneesGeographiques<PointKm> coordonnees) {
+	public Ville(String nom, CoordonneesGeographiques<PointM> coordonnees) {
 		this(nom);
 		this.setCoordonnees(coordonnees);
 	}
 
-	public CoordonneesGeographiques<PointKm> getCoordonnees() {
+	public CoordonneesGeographiques<PointM> getCoordonnees() {
 		return coordonnees;
 	}
 
-	public void setCoordonnees(CoordonneesGeographiques<PointKm> coordonnees) {
+	public void setCoordonnees(CoordonneesGeographiques<PointM> coordonnees) {
 		this.coordonnees = coordonnees;
 	}
 

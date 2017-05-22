@@ -5,7 +5,7 @@ import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.PointM;
 import cityproject.exception.CityProjectException;
 import cityproject.infrastructures.geographie.DirectionEnum;
-import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
 
 
 // import java.awt.Point;

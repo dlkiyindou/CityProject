@@ -7,7 +7,7 @@ import java.util.List;
 
 
 import cityproject.infrastructures.geographie.Coordonnees4Points;
-import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
 import cityproject.infrastructures.geographie.PointM;
 
 

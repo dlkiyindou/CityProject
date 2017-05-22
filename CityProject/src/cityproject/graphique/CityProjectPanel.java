@@ -74,7 +74,7 @@ public class CityProjectPanel extends JPanel {
 		Graphics2D g2 = (Graphics2D) g;
 
 		// resetting the context state
-		g2.scale(10, 10);
+		g2.scale(0.01, 0.01);
 	    g2.drawPolygon(ville.getCoordonnees().getPolygon());
 	    
 	    for (Quartier q : listQuartiers) {

@@ -2,53 +2,29 @@ package cityproject.infrastructures.geographie;
 
 import java.awt.Point;
 
-import cityproject.exception.CoordonneesPointMOutOfRangeException;
-
+/**
+ * JavaPoint
+ * 
+ * @author Dixi
+ *
+ */
 public class PointM extends Point {
-	private PointKm pointReference;
-
-
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6363607880806980883L;
+	private static final long serialVersionUID = 5861153812921760925L;
 
 	public PointM() {
 		super();
 	}
 
+	public PointM(Point p) {
+		super(p);
+	}
+
 	public PointM(int x, int y) {
-		super();
-		pointReference = new PointKm(x/1000, y/1000);
-		setLocation(x%1000, y%1000);
-	}
-	
-	public PointM (PointKm p, int x, int y) throws CoordonneesPointMOutOfRangeException {
-		super();
-		
-		if (x >= 1000 || y >= 1000) {
-			throw new CoordonneesPointMOutOfRangeException("L'abscisse et l'ordonnee doivent etre inferieure a 1000");
-		}
-		
-		pointReference = p;
-		setLocation(x, y);
-	}
-
-	public PointKm getPointReference() {
-		return pointReference;
-	}
-
-	public void setPointReference(PointKm pointReference) {
-		this.pointReference = pointReference;
-	}
-
-	public void setLocation(int x, int y) {
-		if (x >= 1000 || y >= 1000) {
-			pointReference = new PointKm(x/1000, y/1000);
-		}
-		
-		setLocation(x%1000, y%1000);
+		super(x, y);
 	}
 
 	public PointM isPointExtremeRue() {
@@ -65,7 +41,6 @@ public class PointM extends Point {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 	public PointM isPointSommetCroisement() {
 		// TODO Auto-generated method stub

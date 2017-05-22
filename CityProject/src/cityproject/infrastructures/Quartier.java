@@ -8,11 +8,11 @@ import java.util.Set;
 import cityproject.exception.QuartierHorsDeVilleException;
 import cityproject.exception.QuartierPasDeCoordonnees;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
-import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
 
 public class Quartier extends Infrastructure{
 	private String nom_quartier;
-	private CoordonneesGeographiques<PointKm> coordonnees = null;
+	private CoordonneesGeographiques<PointM> coordonnees = null;
 	double distanceHoryzontaleQuartier = 0;
 	double distanceVerticaleQuartier = 0;
 	
@@ -40,11 +40,11 @@ public class Quartier extends Infrastructure{
 	
 	
 	
-	public CoordonneesGeographiques<PointKm> getCoordonnees() {
+	public CoordonneesGeographiques<PointM> getCoordonnees() {
 		return coordonnees;
 	}
 
-	public void setCoordonnees(CoordonneesGeographiques<PointKm> coordonnees) {
+	public void setCoordonnees(CoordonneesGeographiques<PointM> coordonnees) {
 		this.coordonnees = coordonnees;
 	}
 
@@ -59,7 +59,7 @@ public class Quartier extends Infrastructure{
 		super(nom);
 	}
 	
-	public Quartier(String nom, CoordonneesGeographiques<PointKm> coordonnees) {
+	public Quartier(String nom, CoordonneesGeographiques<PointM> coordonnees) {
 		this(nom);
 		this.coordonnees = coordonnees;
 	}
@@ -104,10 +104,10 @@ public class Quartier extends Infrastructure{
 		if (coordonnees == null){
 			throw new QuartierPasDeCoordonnees();	
 		}
-		List<PointKm> listeCoordonnees=coordonnees.getListeDePoints();
+		List<PointM> listeCoordonnees=coordonnees.getListeDePoints();
 		double xMin = Double.MAX_VALUE;
 		double xMax = 0;
-		for (PointKm e : listeCoordonnees) {
+		for (PointM e : listeCoordonnees) {
 			double x = e.getX();
 			if (x<xMin){
 				xMin=x;
@@ -126,10 +126,10 @@ public class Quartier extends Infrastructure{
 		if (coordonnees == null){
 			throw new QuartierPasDeCoordonnees();	
 		}
-		List<PointKm> listeCoordonnees=coordonnees.getListeDePoints();
+		List<PointM> listeCoordonnees=coordonnees.getListeDePoints();
 		double yMin = Double.MAX_VALUE;
 		double yMax = 0;
-		for (PointKm e : listeCoordonnees) {
+		for (PointM e : listeCoordonnees) {
 			double y = e.getY();
 			if (y<yMin){
 				yMin=y;

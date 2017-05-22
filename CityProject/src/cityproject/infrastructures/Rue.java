@@ -4,24 +4,23 @@ import cityproject.exception.CityProjectException;
 import cityproject.infrastructures.geographie.Coordonnees4Points;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.DirectionEnum;
-import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
 
 
 public class Rue extends Infrastructure {
 	private DirectionEnum direction;
 	private final int largeur = 5;
 	// Milieu de la rue
-	private PointKm pointOrigine;
-	// Longueur de la rue, en Km
+	private PointM pointOrigine;
 	private double longueur;
-	private PointKm pointDebut;
-	private PointKm pointFin;
-	private PointKm pointNordOuest;
-	private PointKm pointNordEst;
-	private PointKm pointSudOuest;
-	private PointKm pointSudEst;
+	private PointM pointDebut;
+	private PointM pointFin;
+	private PointM pointNordOuest;
+	private PointM pointNordEst;
+	private PointM pointSudOuest;
+	private PointM pointSudEst;
 	private Quartier quartier;
-	Coordonnees4Points<PointKm> coordrue;
+	Coordonnees4Points<PointM> coordrue;
 	
 	public Rue() throws CityProjectException {
 		super();
@@ -43,7 +42,7 @@ public class Rue extends Infrastructure {
 		calculCoordonnees();
 	}
 
-	public Rue(String nom, PointKm origine, int longueur, DirectionEnum direction) {
+	public Rue(String nom, PointM origine, int longueur, DirectionEnum direction) {
 		super();
 		// completer (créer des paramètres par défault)
 		setNom(nom);
@@ -61,11 +60,11 @@ public class Rue extends Infrastructure {
 		this.direction = direction;
 	}
 	
-	public PointKm getPointOrigine() {
+	public PointM getPointOrigine() {
 		return pointOrigine;
 	}
 	
-	public void setPointOrigine(PointKm pointOrigine) {
+	public void setPointOrigine(PointM pointOrigine) {
 		this.pointOrigine = pointOrigine;
 		// verifier si la longueur a ete mise et si oui calcule des coordonnees
 		// des points debut et fin
@@ -92,7 +91,7 @@ public class Rue extends Infrastructure {
 		return largeur;
 	}
 
-	public void setCoordrue(Coordonnees4Points<PointKm> coordrue) {
+	public void setCoordrue(Coordonnees4Points<PointM> coordrue) {
 		this.coordrue = coordrue;
 	}
 
@@ -106,12 +105,12 @@ public class Rue extends Infrastructure {
 
 				double xd = pointOrigine.getX();
 				double yd = pointOrigine.getY() - longueur / 2;
-				pointDebut = new PointKm();
+				pointDebut = new PointM();
 				pointDebut.setLocation(xd, yd);
 
 				double xf = pointOrigine.getX();
 				double yf = pointOrigine.getY() + longueur / 2;
-				pointFin = new PointKm();
+				pointFin = new PointM();
 				pointFin.setLocation(xf, yf);
 
 			} else if (DirectionEnum.HORIZONTAL == direction) {
@@ -122,12 +121,12 @@ public class Rue extends Infrastructure {
 
 				double xd = pointOrigine.getX() - longueur / 2;
 				double yd = pointOrigine.getY();
-				pointDebut = new PointKm();
+				pointDebut = new PointM();
 				pointDebut.setLocation(xd, yd);
 
 				double xf = pointOrigine.getX() + longueur / 2;
 				double yf = pointOrigine.getY();
-				pointFin = new PointKm();
+				pointFin = new PointM();
 				pointFin.setLocation(xf, yf);
 			}
 		}
@@ -141,53 +140,53 @@ public class Rue extends Infrastructure {
 				
 				double xno = pointDebut.getX() - largeur / 2;
 				double yno = pointDebut.getY();
-				pointNordOuest = new PointKm();
+				pointNordOuest = new PointM();
 				pointNordOuest.setLocation(xno, yno);
 
 				double xne = pointDebut.getX() + largeur / 2;
 				double yne = pointDebut.getY();
-				pointNordEst = new PointKm();
+				pointNordEst = new PointM();
 				pointNordEst.setLocation(xne, yne);
 
 				double xso = pointFin.getX() - largeur / 2;
 				double yso = pointFin.getY();
-				pointSudOuest = new PointKm();
+				pointSudOuest = new PointM();
 				pointSudOuest.setLocation(xso, yso);
 
 				double xse = pointFin.getX() + largeur / 2;
 				double yse = pointFin.getY();
-				pointSudEst = new PointKm();
+				pointSudEst = new PointM();
 				pointSudEst.setLocation(xse, yse);
 
 			} else if (DirectionEnum.HORIZONTAL == direction) {
 				double xno = pointDebut.getX();
 				double yno = pointDebut.getY() - largeur / 2;
-				pointNordOuest = new PointKm();
+				pointNordOuest = new PointM();
 				pointNordOuest.setLocation(xno, yno);
 
 				double xne = pointFin.getX();
 				double yne = pointFin.getY() - largeur / 2;
-				pointNordEst = new PointKm();
+				pointNordEst = new PointM();
 				pointNordEst.setLocation(xne, yne);
 
 				double xso = pointDebut.getX();
 				double yso = pointDebut.getY() + largeur / 2;
-				pointSudOuest = new PointKm();
+				pointSudOuest = new PointM();
 				pointSudOuest.setLocation(xso, yso);
 
 				double xse = pointFin.getX();
 				double yse = pointFin.getY() + largeur / 2;
-				pointSudEst = new PointKm();
+				pointSudEst = new PointM();
 				pointSudEst.setLocation(xse, yse);
 			}
 
-			Coordonnees4Points<PointKm> coord = new Coordonnees4Points<PointKm>();
+			Coordonnees4Points<PointM> coord = new Coordonnees4Points<PointM>();
 			coord.ajouterElements(pointNordOuest, pointNordEst, pointSudEst, pointSudOuest);
 			this.setCoordrue(coord);
 		}
 	}
 
-	public CoordonneesGeographiques<PointKm> getCoordonnees() {
+	public CoordonneesGeographiques<PointM> getCoordonnees() {
 
 		calculCoordonnees();
 		calculCordonnees4Points();
