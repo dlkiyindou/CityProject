@@ -17,6 +17,7 @@ import cityproject.infrastructures.Ville;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
+import cityproject.infrastructures.geographie.PointM;
 
 
 /**
@@ -116,6 +117,7 @@ public class CityProject {
 	
 	private static Rue creerRue2() throws CityProjectException {
 		PointKm p2= new PointKm(26,10);
+		//PointM p2_1 = new PointM(p2, 100, 200);
 		Rue rue2 = new Rue("Rue 2", p2 , 50, DirectionEnum.VERTICAL);
 		return rue2;
 	}

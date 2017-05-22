@@ -18,14 +18,14 @@ public class Quartier extends Infrastructure{
 	private String nom_quartier;
 	private CoordonneesGeographiques<PointKm> coordonnees;
 	
-	private List<Parcelle> listeparcelles;
-	private List<Rue> listerues;
-	private List<Croisement> listcroisements;
+	private List<Parcelle> listeParcelles;
+	private List<Rue> listeRues;
+	private List<Croisement> listCroisements;
 	
 	
 	
 	public List<Parcelle> getListeDeParcelles() {
-		return listeparcelles;
+		return listeParcelles;
 	}
 
 	public void updateListDeParcelles() {
