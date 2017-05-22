@@ -3,7 +3,7 @@ package cityproject.infrastructures;
 import cityproject.habitants.Habitant;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 
-public class Habitation {
+public class BienImmobilier {
 	private Habitant habitant;
 	private CoordonneesGeographiques localisation;
 
