@@ -50,4 +50,8 @@ public class Ville extends Infrastructure {
 
 	}
 
+	public int getId() {
+		return 0;
+	}
+
 }

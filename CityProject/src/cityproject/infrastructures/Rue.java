@@ -22,12 +22,6 @@ public class Rue extends Infrastructure {
 	private PointKm pointSudEst;
 	private Quartier quartier;
 	Coordonnees4Points<PointKm> coordrue;
-	private PointKm pointDebut;
-	private PointKm pointFin;
-	private PointKm pointNordOuest;
-	private PointKm pointNordEst;
-	private PointKm pointSudOuest;
-	private PointKm pointSudEst;
 	
 	public Rue() throws CityProjectException {
 		super();
@@ -52,8 +46,6 @@ public class Rue extends Infrastructure {
 	public Rue(String nom, PointKm origine, int longueur, DirectionEnum direction) {
 		super();
 		// completer (créer des paramètres par défault)
-		super();
-		//completer (créer des paramètres par défault)
 		setNom(nom);
 		setLongueur(longueur);
 		setPointOrigine(origine);
@@ -96,10 +88,6 @@ public class Rue extends Infrastructure {
 		//// coordonnees des points debut et fin
 	}
 	
-	public int getLargeur() {
-		return largeur;
-	}
-
 	public int getLargeur() {
 		return largeur;
 	}

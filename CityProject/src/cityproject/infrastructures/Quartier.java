@@ -5,9 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import cityproject.infrastructures.Rue;
-import cityproject.infrastructures.Croisement;
-
 import cityproject.exception.QuartierHorsDeVilleException;
 import cityproject.exception.QuartierPasDeCoordonnees;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
@@ -22,7 +19,7 @@ public class Quartier extends Infrastructure{
 	
 	private List<Parcelle> listeParcelles;
 	private List<Rue> listeRues;
-	private List<Croisement> listCroisements;
+	private List<Croisement> listeCroisements;
 	
 	
 	
@@ -148,19 +145,19 @@ public class Quartier extends Infrastructure{
 	}
 
 	public List<Rue> getListerues() {
-		return listerues;
+		return listeRues;
 	}
 
 	public void setListerues(List<Rue> listerues) {
-		this.listerues = listerues;
+		this.listeRues = listerues;
 	}
 
-	public List<Croisement> getListcroisements() {
-		return listcroisements;
+	public List<Croisement> getListecroisements() {
+		return listeCroisements;
 	}
 
-	public void setListcroisements(List<Croisement> listcroisements) {
-		this.listcroisements = listcroisements;
+	public void setListcroisements(List<Croisement> listecroisements) {
+		this.listeCroisements = listecroisements;
 	}
 	
 	
