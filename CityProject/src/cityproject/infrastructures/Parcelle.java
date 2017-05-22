@@ -79,7 +79,7 @@ public class Parcelle {
 	}
 
 	/*
-	 * Méthode de calcul de la position d'une parcelle
+	 * Mï¿½thode de calcul de la position d'une parcelle
 	 */
 
 	public void calculPositionParcelle(PointM p, Croisement c) throws CityProjectException {
@@ -95,7 +95,7 @@ public class Parcelle {
 		// point de parcours sur axe N-S
 		PointM pointParcoursAxeNS = new PointM(0, 0);
 		// dernier point pour constituer la parcelle, les coordonnees sont
-		// calculées
+		// calculï¿½es
 		PointM pointCalcule = new PointM(0, 0);
 
 		// Initialisation de la position des points
@@ -106,17 +106,17 @@ public class Parcelle {
 		x2 = (int) p.getX();
 		y2 = (int) p.getY();
 
-		// Premier cas: On part du point NO et on calcule les coordonnées de la
+		// Premier cas: On part du point NO et on calcule les coordonnï¿½es de la
 		// parcelle
 		if (cardinality == PointInterCardinalEnum.NORDOUEST) {
 			do {
 				x1 -= 1;
 				pointParcoursAxeEO.setLocation(x1, y1);
-			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointCroisement()));
+			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointSommetCroisement()));
 			do {
 				y2 += 1;
 				pointParcoursAxeNS.setLocation(x2, y2);
-			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointCroisement()));
+			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointSommetCroisement()));
 
 			x3 = (int) pointParcoursAxeEO.getX();
 			y3 = (int) pointParcoursAxeNS.getY();
@@ -128,17 +128,17 @@ public class Parcelle {
 			pointSudEst = p;
 		}
 
-		// Deuxième cas: On part du point NE et on calcule les coordonnées de la
+		// Deuxiï¿½me cas: On part du point NE et on calcule les coordonnï¿½es de la
 		// parcelle
 		if (cardinality == PointInterCardinalEnum.NORDEST) {
 			do {
 				x1 += 1;
 				pointParcoursAxeEO.setLocation(x1, y1);
-			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointCroisement()));
+			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointSommetCroisement()));
 			do {
 				y2 += 1;
 				pointParcoursAxeNS.setLocation(x2, y2);
-			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointCroisement()));
+			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointSommetCroisement()));
 
 			x3 = (int) pointParcoursAxeEO.getX();
 			y3 = (int) pointParcoursAxeNS.getY();
@@ -150,18 +150,18 @@ public class Parcelle {
 			pointSudEst = p;
 		}
 
-		// Troisième cas: On part du point SO et on calcule les coordonnées de
+		// Troisiï¿½me cas: On part du point SO et on calcule les coordonnï¿½es de
 		// la parcelle
 		if (cardinality == PointInterCardinalEnum.SUDOUEST) {
 
 			do {
 				x1 -= 1;
 				pointParcoursAxeEO.setLocation(x1, y1);
-			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointCroisement()));
+			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointSommetCroisement()));
 			do {
 				y2 -= 1;
 				pointParcoursAxeNS.setLocation(x2, y2);
-			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointCroisement()));
+			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointSommetCroisement()));
 
 			x3 = (int) pointParcoursAxeEO.getX();
 			y3 = (int) pointParcoursAxeNS.getY();
@@ -174,17 +174,17 @@ public class Parcelle {
 
 		}
 
-		// Quatrième cas: On part du point SE et on calcule les coordonnées de
+		// Quatriï¿½me cas: On part du point SE et on calcule les coordonnï¿½es de
 		// la parcelle
 		if (cardinality == PointInterCardinalEnum.SUDEST) {
 			do {
 				x1 += 1;
 				pointParcoursAxeEO.setLocation(x1, y1);
-			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointCroisement()));
+			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointSommetCroisement()));
 			do {
 				y2 -= 1;
 				pointParcoursAxeNS.setLocation(x2, y2);
-			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointCroisement()));
+			} while ((pointParcoursAxeEO != p.isPointExtremeRue() || pointParcoursAxeEO != p.isPointSommetCroisement()));
 
 			x3 = (int) pointParcoursAxeEO.getX();
 			y3 = (int) pointParcoursAxeNS.getY();

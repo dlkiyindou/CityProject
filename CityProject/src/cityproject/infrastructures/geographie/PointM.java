@@ -62,7 +62,13 @@ public class PointM extends Point {
 		return null;
 	}
 
-	public PointM isPointCroisement() {
+	public PointM isPointCentreCroisement() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+	public PointM isPointSommetCroisement() {
 		// TODO Auto-generated method stub
 		return null;
 	}

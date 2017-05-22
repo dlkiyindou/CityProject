@@ -13,15 +13,16 @@ public class Rue extends Infrastructure {
 	// Milieu de la rue
 	private PointKm pointOrigine;
 	// Longueur de la rue, en Km
-	private int longueur;
+	private double longueur;
 	private PointKm pointDebut;
 	private PointKm pointFin;
 	private PointKm pointNordOuest;
 	private PointKm pointNordEst;
 	private PointKm pointSudOuest;
 	private PointKm pointSudEst;
-	private Coordonnees4Points<PointKm> coordrue;
-
+	private Quartier quartier;
+	Coordonnees4Points<PointKm> coordrue;
+	
 	public Rue() throws CityProjectException {
 		super();
 		// completer (créer des paramètres par défault)
@@ -71,7 +72,12 @@ public class Rue extends Infrastructure {
 		calculCoordonnees();
 	}
 
-	public int getLongueur() {
+	public double getLongueur() {
+		if (direction==DirectionEnum.HORIZONTAL) {
+			longueur = quartier.getdistanceHoryzontaleQuartier();
+		} else if (direction==DirectionEnum.VERTICAL) {
+			longueur = quartier.getdistanceVerticaleQuartier();
+		}
 		return longueur;
 	}
 

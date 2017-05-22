@@ -100,7 +100,6 @@ public class CityProject {
 		coordQuartier.ajouterElement(new PointKm(30, 25));
 		coordQuartier.ajouterElement(new PointKm(30, 20));
 		coordQuartier.ajouterElement(new PointKm(35, 20));
-		coordQuartier.ajouterElement(new PointKm(30, 25));
 		coordQuartier.ajouterElement(new PointKm(20, 20));
 				
 		quartier.setCoordonnees(coordQuartier);

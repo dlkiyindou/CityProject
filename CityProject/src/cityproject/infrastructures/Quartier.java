@@ -9,14 +9,16 @@ import cityproject.infrastructures.Rue;
 import cityproject.infrastructures.Croisement;
 
 import cityproject.exception.QuartierHorsDeVilleException;
+import cityproject.exception.QuartierPasDeCoordonnees;
 import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.PointKm;
 
 public class Quartier extends Infrastructure{
-	
-	
 	private String nom_quartier;
-	private CoordonneesGeographiques<PointKm> coordonnees;
+	private CoordonneesGeographiques<PointKm> coordonnees = null;
+	double distanceHoryzontaleQuartier = 0;
+	double distanceVerticaleQuartier = 0;
+	
 	
 	private List<Parcelle> listeParcelles;
 	private List<Rue> listeRues;
@@ -101,16 +103,65 @@ public class Quartier extends Infrastructure{
 	}	
 	
 
-//	private double calculLongueurQuartier () {
-//		while (les abscisse de deux coordville sont = )
-//			public static double distance (double x1, double y1, double x2, double y2) {
-//				return distance;
-//		}
-//	Double longueurQuartier = new Double ();
-//	
-//	}
-	
-	private void calculLargeurMaxQuartier () {
-		
+	public void calculDistanceHoryzontaleQuartier () throws QuartierPasDeCoordonnees {
+		if (coordonnees == null){
+			throw new QuartierPasDeCoordonnees();	
+		}
+		List<PointKm> listeCoordonnees=coordonnees.getListeDePoints();
+		double xMin = Double.MAX_VALUE;
+		double xMax = 0;
+		for (PointKm e : listeCoordonnees) {
+			double x = e.getX();
+			if (x<xMin){
+				xMin=x;
+			}
+			if (x>xMax){
+				xMax=x;
+			}
+		}
+		distanceHoryzontaleQuartier = xMax-xMin;
 	}
+	public double getdistanceHoryzontaleQuartier() {
+		return distanceHoryzontaleQuartier;
+	}
+	
+	public void calculDistanceVerticaleQuartier () throws QuartierPasDeCoordonnees {
+		if (coordonnees == null){
+			throw new QuartierPasDeCoordonnees();	
+		}
+		List<PointKm> listeCoordonnees=coordonnees.getListeDePoints();
+		double yMin = Double.MAX_VALUE;
+		double yMax = 0;
+		for (PointKm e : listeCoordonnees) {
+			double y = e.getY();
+			if (y<yMin){
+				yMin=y;
+			}
+			if (y>yMax){
+				yMax=y;
+			}
+		}
+		distanceVerticaleQuartier = yMax-yMin;
+	}
+	public double getdistanceVerticaleQuartier() {
+		return distanceVerticaleQuartier;
+	}
+
+	public List<Rue> getListerues() {
+		return listerues;
+	}
+
+	public void setListerues(List<Rue> listerues) {
+		this.listerues = listerues;
+	}
+
+	public List<Croisement> getListcroisements() {
+		return listcroisements;
+	}
+
+	public void setListcroisements(List<Croisement> listcroisements) {
+		this.listcroisements = listcroisements;
+	}
+	
+	
 }
