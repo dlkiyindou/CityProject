@@ -10,7 +10,15 @@ import cityproject.infrastructures.geographie.PointM;
 
 public class Ville extends Infrastructure {
 	private CoordonneesGeographiques<PointM> coordonnees;
-	private List<Parcelle> listeparcelles;
+	private ArrayList<Quartier> listequartiers;
+
+	public ArrayList<Quartier> getListequartiers() {
+		return listequartiers;
+	}
+
+	public void setListequartiers(ArrayList<Quartier> listequartiers) {
+		this.listequartiers = listequartiers;
+	}
 
 	public Ville() {
 		super();
@@ -33,22 +41,6 @@ public class Ville extends Infrastructure {
 		this.coordonnees = coordonnees;
 	}
 
-	public List<Parcelle> getListeDeParcelles() {
-		return listeparcelles;
-	}
-
-	public void updateListDeParcelles() {
-		
-		//Suppression des doublons
-		List<Parcelle> parcelles = new ArrayList<Parcelle>();
-		parcelles = this.getListeDeParcelles();
-        Set<Parcelle> set = new HashSet<Parcelle>() ;
-        set.addAll(parcelles) ;
-        ArrayList<Parcelle> updateparcelles = new ArrayList<Parcelle>(set) ;
-        parcelles.addAll(updateparcelles);
-
-
-	}
 
 	public int getId() {
 		return 0;

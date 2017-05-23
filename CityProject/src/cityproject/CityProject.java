@@ -29,39 +29,45 @@ public class CityProject {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		// Creation de la ville
-		Ville ville = creerVille();	
 		
-		// Constitution liste de quartiers
-		
-		List<Quartier> quartiers = new ArrayList<Quartier>();
-		
+		// Creation des éléments de la ville
+		// Ville
+		Ville ville = creerVille();
+		// Quartiers
 		Quartier quartier = creerQuartier(ville);
+		// Rues
+		Rue rue1 = creerRue1(quartier);		
+		Rue rue2 = creerRue2(quartier);
 		
-		quartiers.add(quartier);
+		List<Rue> listerues = new ArrayList<Rue>();
+//		listerues = quartier.getListerues();
+		listerues.add(rue2);
+		listerues.add(rue1);
+		quartier.setListerues(listerues);
 		
-		// Constitution liste de rues
-		
-		List<Rue> rues = new ArrayList<Rue>();
-		
-		Rue rue1 = creerRue1();
-		Rue rue2 = creerRue2();
-		
-		rues.add(rue1);
-		rues.add(rue2);
-		
+		ArrayList<Quartier> listequartiers = new ArrayList<Quartier>();
+//		listequartiers = ville.getListequartiers();
+		listequartiers.add(quartier);
+		ville.setListequartiers(listequartiers);
 		
 		
+		// Création de l'interface graphique
 		CityProjectFenetre fenetre = new CityProjectFenetre();
-		CityProjectPanel villeGraphe = new CityProjectPanel(ville, quartiers, rues);
-		
-		villeGraphe.paintComponents(fenetre.getGraphics());
-		fenetre.setContentPane(villeGraphe);
-		
+		fenetre.setVille(ville);
 		fenetre.initFenetre();
+		
+//		CityProjectPanel villeGraphe = new CityProjectPanel(ville, quartiers, rues);
+//		
+//		villeGraphe.paintComponents(fenetre.getGraphics());
+//		
+//		fenetre.setContentPane(villeGraphe);
+		
+		
 	}
 	
 	
+
+
 	private static Ville creerVille() throws CityProjectException {
 		Ville ville = new Ville("CityProject ville");
 		CoordonneesGeographiques<PointM> coordVille = new CoordonneesGeographiques<PointM>();
@@ -90,6 +96,7 @@ public class CityProject {
 	
 	private static Quartier creerQuartier(Ville ville) throws CityProjectException {
 		Quartier quartier = new Quartier("Le quartier centrale");
+		
 		CoordonneesGeographiques<PointM> coordQuartier = new CoordonneesGeographiques<PointM>();
 		coordQuartier.ajouterElement(new PointM(10000, 30000));
 		coordQuartier.ajouterElement(new PointM(10000, 35000));
@@ -104,18 +111,22 @@ public class CityProject {
 		quartier.setCoordonnees(coordQuartier);
 		quartier.setVille(ville);
 		
+
+		
 		return quartier;
 	}
 	
-	private static Rue creerRue1() throws CityProjectException {
+	private static Rue creerRue1(Quartier quartier) throws CityProjectException {
 		PointM p1 = new PointM(25000,10000);
 		Rue rue1 = new Rue("Rue 1", p1, 50000, DirectionEnum.HORIZONTAL);
+	
 		return rue1;
 	}
 	
-	private static Rue creerRue2() throws CityProjectException {
+	private static Rue creerRue2(Quartier quartier) throws CityProjectException {
 		PointM p2= new PointM(26000,10000);
 		Rue rue2 = new Rue("Rue 2", p2 , 50000, DirectionEnum.VERTICAL);
+		
 		return rue2;
 	}
 

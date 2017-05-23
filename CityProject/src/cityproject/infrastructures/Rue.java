@@ -41,6 +41,16 @@ public class Rue extends Infrastructure {
 		setDirection(DirectionEnum.HORIZONTAL);
 		calculCoordonnees();
 	}
+	
+	public Rue(Quartier quartier) {
+		super();
+		// completer (créer des paramètres par défault)
+		setNom(null);
+		setLongueur(0);
+		setPointOrigine(null);
+		setDirection(DirectionEnum.HORIZONTAL);
+		calculCoordonnees();
+	}
 
 	public Rue(String nom, PointM origine, int longueur, DirectionEnum direction) {
 		super();
