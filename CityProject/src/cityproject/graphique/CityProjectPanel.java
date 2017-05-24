@@ -23,6 +23,8 @@ public class CityProjectPanel extends JPanel {
 
 	// Variables de zoom
 	double scale = 0.01;
+	double tx = 0.0;
+	double ty = 0.0;
 
 	public double getScale() {
 		return scale;
@@ -56,6 +58,7 @@ public class CityProjectPanel extends JPanel {
 
 		// resetting the context state
 		g2.scale(scale, scale);
+		g2.translate(tx, ty);
 		g2.drawPolygon(ville.getCoordonnees().getPolygon());
 
 		for (Quartier q : ville.getListequartiers()) {
@@ -66,7 +69,22 @@ public class CityProjectPanel extends JPanel {
 			}
 		}
 	}
+
+	public double getTx() {
+		return tx;
+	}
+
+	public void setTx(double tx) {
+		this.tx = tx;
+	}
 	
+	public double getTy() {
+		return ty;
+	}
+
+	public void setTy(double ty) {
+		this.ty = ty;
+	}
 
 
 

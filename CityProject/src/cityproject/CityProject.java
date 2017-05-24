@@ -38,11 +38,15 @@ public class CityProject {
 		// Rues
 		Rue rue1 = creerRue1(quartier);		
 		Rue rue2 = creerRue2(quartier);
+		Rue rue3 = creerRue3(quartier);
+		Rue rue4 = creerRue4(quartier);
 		
 		List<Rue> listerues = new ArrayList<Rue>();
 //		listerues = quartier.getListerues();
 		listerues.add(rue2);
 		listerues.add(rue1);
+		listerues.add(rue3);
+		listerues.add(rue4);
 		quartier.setListerues(listerues);
 		
 		ArrayList<Quartier> listequartiers = new ArrayList<Quartier>();
@@ -117,14 +121,28 @@ public class CityProject {
 	}
 	
 	private static Rue creerRue1(Quartier quartier) throws CityProjectException {
-		PointM p1 = new PointM(25000,10000);
+		PointM p1 = new PointM(60000,45000);
 		Rue rue1 = new Rue("Rue 1", p1, 50000, DirectionEnum.HORIZONTAL);
 	
 		return rue1;
 	}
 	
 	private static Rue creerRue2(Quartier quartier) throws CityProjectException {
-		PointM p2= new PointM(26000,10000);
+		PointM p2= new PointM(65000,45000);
+		Rue rue2 = new Rue("Rue 2", p2 , 50000, DirectionEnum.VERTICAL);
+		
+		return rue2;
+	}
+	
+	private static Rue creerRue3(Quartier quartier) throws CityProjectException {
+		PointM p1 = new PointM(55000,30000);
+		Rue rue1 = new Rue("Rue 1", p1, 50000, DirectionEnum.HORIZONTAL);
+	
+		return rue1;
+	}
+	
+	private static Rue creerRue4(Quartier quartier) throws CityProjectException {
+		PointM p2= new PointM(56000,30000);
 		Rue rue2 = new Rue("Rue 2", p2 , 50000, DirectionEnum.VERTICAL);
 		
 		return rue2;
