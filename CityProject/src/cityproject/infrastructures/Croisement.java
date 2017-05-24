@@ -7,6 +7,7 @@ import java.util.List;
 
 
 import cityproject.infrastructures.geographie.Coordonnees4Points;
+import cityproject.infrastructures.geographie.DirectionEnum;
 import cityproject.infrastructures.geographie.PointKm;
 import cityproject.infrastructures.geographie.PointM;
 
@@ -75,8 +76,12 @@ public class Croisement extends Infrastructure {
 	
 public static void main(String[] args){
 	
+// Rue james1 = new Rue();
 	
-// Rue james1 = new Rue("James", 0, 1, DirectionEnum.HORIZONTAL);
+// Rue james1 = new Rue("James", (new PointM(1,2)), 10, DirectionEnum.HORIZONTAL);
+// Rue james2 = new Rue("James1", 0, 1, DirectionEnum.HORIZONTAL);
+
+	
 // System.out.print("Rue james1: " +james1+ ",   ");
 		
 // Pseudo-code (James R)
@@ -343,9 +348,6 @@ System.out.println("intersect");
 } else {
 System.out.println("not intersect");
 }	
-
-
-
 
 
 }

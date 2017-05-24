@@ -2,6 +2,7 @@ package cityproject.infrastructures;
 
 // import cityproject.infrastructures.geographie.Adresse;
 import cityproject.infrastructures.geographie.Coordonnees4Points;
+import cityproject.infrastructures.geographie.CoordonneesGeographiques;
 import cityproject.infrastructures.geographie.PointM;
 import cityproject.exception.CityProjectException;
 import cityproject.infrastructures.geographie.DirectionEnum;
@@ -54,10 +55,22 @@ public class Lot { //Definition sous forme d'un rectangle comme Parcelle, Rue et
 	// public Adresse getAdresse() {
 	//	return adresse;
 	// }
+
+	
+	private static Parcelle creerVille() throws CityProjectException {
+		Parcelle parcelle = new Parcelle();
+		Coordonnees4Points<PointM> coordLot = new Coordonnees4Points<PointM>();
+	coordLot.ajouterElement(new PointM(1, 2));	
+	coordLot.ajouterElement(new PointM(2, 4));	
+	coordLot.ajouterElement(new PointM(3, 5));		
+	Object lot;
+	// lot.setCoordonnees(coordLot);
+
+	return parcelle;}
+	
 	
 	public static void main(String[] args){
 
-	
 	
 	// calculate the 'parcel area using the above points'
 	// n.b. find out why getX, getY don't work..
