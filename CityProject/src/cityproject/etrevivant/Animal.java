@@ -12,12 +12,6 @@ public class Animal extends EtreVivant {
 		
 
 		@Override
-		public Quartier getQuartier() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
 		public Quartier getQuartierCourant() {
 			// TODO Auto-generated method stub
 			return null;
