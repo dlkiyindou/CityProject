@@ -82,7 +82,7 @@ public static void main(String[] args){
 // Rue james2 = new Rue("James1", 0, 1, DirectionEnum.HORIZONTAL);
 
 	
-// System.out.print("Rue james1: " +james1+ ",   ");
+// System.out.print("Rue james1: " +james1+ ",  ");
 		
 // Pseudo-code (James R)
 	

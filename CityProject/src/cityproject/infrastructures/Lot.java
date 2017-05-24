@@ -69,11 +69,13 @@ public class Lot { //Definition sous forme d'un rectangle comme Parcelle, Rue et
 	return parcelle;}
 	
 	
+	
+	
 	public static void main(String[] args){
 
 	
 	// calculate the 'parcel area using the above points'
-	// n.b. find out why getX, getY don't work..
+	// n.b.  find out why getX, getY don't work..
 		
 	// double x1 = pointNordOuest.getX();
 	// double x2 = pointNordEst.getX();
