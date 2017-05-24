@@ -2,6 +2,8 @@ package cityproject.infrastructures.geographie;
 
 import java.awt.Point;
 
+import cityproject.infrastructures.Rue;
+
 /**
  * JavaPoint
  * 
@@ -44,6 +46,11 @@ public class PointM extends Point {
 
 	public PointM isPointSommetCroisement() {
 		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public Rue appartientRue() {
+		
 		return null;
 	}
 
