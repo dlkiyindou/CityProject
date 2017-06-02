@@ -42,7 +42,7 @@ public class SQLiteDatabaseManager {
     }
     
     public static void main(String[] args) throws SQLException {
-    	//connect();
+    	connect();
     	System.out.println(getSQLiteDBPath());
     	VilleRepository.getInstance().createTable();
     	
